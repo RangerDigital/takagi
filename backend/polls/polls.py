@@ -73,7 +73,7 @@ def get_poll(poll_id):
 
     poll = db.polls.find_one({"_id": ObjectId(poll_id)})
     if not poll:
-        return return_error("Poll with that Id not found!", 404)
+        return return_error("Poll not found!", 404)
 
     return return_json(poll), 200
 
