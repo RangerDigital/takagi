@@ -5,6 +5,8 @@ from user.users import users
 from user.auth import auth
 
 from polls.polls import polls
+
+from health.health import health
 from handler.handlers import handlers
 
 
@@ -25,6 +27,8 @@ def create_app():
     app.register_blueprint(users)
 
     app.register_blueprint(polls)
+    
+    app.register_blueprint(health)
     app.register_blueprint(handlers)
 
     return app

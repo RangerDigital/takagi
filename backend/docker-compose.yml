@@ -4,12 +4,17 @@ services:
         container_name: mongo
         image: 'mongo:latest'
 
+    redis:
+        container_name: redis
+        image: 'redis:latest'
+
     takagi:
         container_name: takagi
         ports:
             - '127.0.0.1:5000:8000'
         environment:
             - MONGO_ADDRESS=mongo
+            - REDIS_ADDRESS=redis
         image: 'rangerdigital/takagi:latest'
         depends_on:
         - mongo

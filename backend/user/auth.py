@@ -7,7 +7,7 @@ from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_requir
 from bson.objectid import ObjectId
 from marshmallow import Schema, fields
 
-from extensions import db
+from extensions import db, rd
 from helpers import validate_schema, return_error, return_json
 
 auth = Blueprint("auth", __name__)
@@ -50,19 +50,23 @@ def generate_hash(password):
 @auth.route("/users/login", methods=["POST"])
 @validate_schema(Auth())
 def login_user(payload):
+    rd.incr("counters:logins")
     user = db.users.find_one({"email": payload["email"]})
 
     if not user:
+        rd.incr("counters:logins:failure")
         return return_error("Invalid credentials!", 401)
 
     password_hash = hashlib.pbkdf2_hmac(
         "sha256", payload["password"].encode("utf-8"), user["salt"], 100000)
 
     if password_hash != user["password"]:
+        rd.incr("counters:logins:failure")
         return return_error("Invalid credentials!", 401)
 
     jwt_token = create_access_token(identity=str(user["_id"]))
 
+    rd.incr("counters:logins:success")
     return return_json({"jwt_token": jwt_token}), 200
 
 
@@ -77,6 +81,7 @@ def register_user(payload):
 
     db.users.insert_one(payload)
 
+    rd.incr("counters:registers:success")
     return return_json(""), 204
 
 

@@ -6,7 +6,7 @@ from flask_jwt_extended import get_jwt_identity, jwt_optional, jwt_required
 from bson.objectid import ObjectId
 from marshmallow import Schema, fields
 
-from extensions import db
+from extensions import db, rd
 from helpers import validate_schema, return_error, return_json
 
 polls = Blueprint("polls", __name__)
@@ -47,7 +47,7 @@ def create_poll(payload):
         poll["options"].append({"name": option, "votes": 0})
 
     db.polls.insert_one(poll)
-
+    rd.incr("counters:polls")
     return return_json(poll), 201
 
 
@@ -113,4 +113,5 @@ def vote_poll(payload, poll_id):
 
     db.polls.replace_one({"_id": ObjectId(poll_id)}, poll)
 
+    rd.incr("counters:votes")
     return return_json(poll), 201
