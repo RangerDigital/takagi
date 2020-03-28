@@ -1,0 +1,4 @@
+[MESSAGES CONTROL]
+
+# Disable docstrings errors.
+disable=C0116, C0115, C0114
