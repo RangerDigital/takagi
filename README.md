@@ -1,5 +1,6 @@
 <h1 align="center">Takagi</h1>
 
+![Build - Production](https://github.com/RangerDigital/takagi/workflows/Build%20-%20Production/badge.svg?branch=master)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 Source of **Takagi**, simple web application build with **Flask** and **Vue.js** used to conduct quick, anonymous polls over the internet.
