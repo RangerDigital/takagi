@@ -22,24 +22,26 @@ class Vote(Schema):
     fingerprint = fields.String(required=True)
 
 
+# Create new poll.
 @polls.route("/polls", methods=["POST"])
 @jwt_optional
 @validate_schema(Poll())
 def create_poll(payload):
     user_id = get_jwt_identity()
-
     poll = {}
 
+    # Tag poll if user is logged.
     if user_id:
         poll["_user_id"] = user_id
         poll["name"] = db.users.find_one({"_id":  ObjectId(user_id)})["name"]
     else:
         poll["name"] = "Anonymous"
 
-    poll["created_at"] = time.time()
     poll["voters"] = []
+    poll["created_at"] = time.time()
     poll["question"] = payload["question"]
 
+    # Prepare options database scheme.
     poll["options"] = []
     for option in payload["options"]:
         poll["options"].append({"name": option, "votes": 0})
@@ -51,6 +53,7 @@ def create_poll(payload):
     return jsonify(poll), 201
 
 
+# Get all polls from logged user.
 @polls.route("/polls", methods=["GET"])
 @jwt_required
 def get_polls():
@@ -64,21 +67,26 @@ def get_polls():
     return jsonify(user_polls), 200
 
 
+# Get poll by ID.
 @polls.route("/polls/<poll_id>", methods=["GET"])
 def get_poll(poll_id):
 
     if not ObjectId.is_valid(poll_id):
         return return_error("Invalid ID format!")
 
-    poll = db.polls.find_one({"_id": ObjectId(poll_id)}, {"user": 0})
+    poll = db.polls.find_one({"_id": ObjectId(poll_id)})
     if not poll:
         return return_error("Poll with that Id not found!", 404)
 
     poll["_id"] = str(poll["_id"])
 
+    if poll.get("_user_id"):
+        poll["_user_id"] = str(poll["_user_id"])
+
     return jsonify(poll), 200
 
 
+# Delete poll created by logged user.
 @polls.route("/polls/<poll_id>", methods=["DELETE"])
 @jwt_required
 def delete_poll(poll_id):
@@ -92,17 +100,19 @@ def delete_poll(poll_id):
     return jsonify(""), 204
 
 
+# Vote in public poll once.
 @polls.route("/polls/<poll_id>/vote", methods=["POST"])
 @validate_schema(Vote())
-def vote_in_poll(payload, poll_id):
+def vote_poll(payload, poll_id):
     if not ObjectId.is_valid(poll_id):
         return return_error("Invalid ID format!")
 
-    poll = db.polls.find_one({"_id": ObjectId(poll_id)}, {"_id": 0, "_user_id": 0})
+    poll = db.polls.find_one({"_id": ObjectId(poll_id)})
 
     if not poll:
-        return return_error("Poll with that Id not found!", 404)
+        return return_error("Poll not found!", 404)
 
+    # Check if user fingerprint already in database.
     if payload["fingerprint"] in poll["voters"]:
         return return_error("You already voted in that poll!")
 
@@ -110,5 +120,10 @@ def vote_in_poll(payload, poll_id):
     poll["options"][payload["option_id"]]["votes"] += 1
 
     db.polls.replace_one({"_id": ObjectId(poll_id)}, poll)
+
+    poll["_id"] = str(poll["_id"])
+
+    if poll.get("_user_id"):
+        poll["_user_id"] = str(poll["_user_id"])
 
     return jsonify(poll), 201
