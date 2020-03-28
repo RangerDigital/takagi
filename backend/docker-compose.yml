@@ -1,15 +1,15 @@
 version: '3.3'
 services:
-    mongodb:
-        container_name: mongodb
-        image: 'mongodb:latest'
+    mongo:
+        container_name: mongo
+        image: 'mongo:latest'
 
     takagi:
         container_name: takagi
         ports:
             - '127.0.0.1:5000:8000'
         environment:
-            - MONGO_ADDRESS=mongodb
+            - MONGO_ADDRESS=mongo
         image: 'rangerdigital/takagi:latest'
         depends_on:
-        - mongodb
+        - mongo
