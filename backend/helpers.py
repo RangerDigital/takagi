@@ -1,7 +1,32 @@
+import json
 from functools import wraps
-from flask import jsonify, request
+from flask import request, Response
 
+from bson import ObjectId
 from marshmallow import ValidationError
+
+
+def return_json(payload, status_code=200):
+    """Returns JSON response.
+
+    Args:
+        payload (Dict): Response payload.
+        code (Int): Status code.
+
+    Returns:
+        Response: Flask JSON Response.
+
+    """
+
+    class JSONEncoder(json.JSONEncoder):
+        def default(self, o):
+            if isinstance(o, ObjectId):
+                return str(o)
+                return json.JSONEncoder.default(self, o)
+
+    payload = json.dumps(payload, cls=JSONEncoder)
+
+    return Response(response=payload, status=status_code, mimetype="application/json")
 
 
 def return_error(error_msg="Application Error!", status_code=400):
@@ -15,7 +40,7 @@ def return_error(error_msg="Application Error!", status_code=400):
         Response: Flask JSON Response.
 
     """
-    return jsonify({"status": "error", "code": status_code, "msg": error_msg}), status_code
+    return return_json({"status": "error", "code": status_code, "msg": error_msg}), status_code
 
 
 def validate_schema(schema):

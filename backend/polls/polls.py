@@ -7,7 +7,7 @@ from bson.objectid import ObjectId
 from marshmallow import Schema, fields
 
 from extensions import db
-from helpers import validate_schema, return_error
+from helpers import validate_schema, return_error, return_json
 
 polls = Blueprint("polls", __name__)
 
@@ -48,9 +48,7 @@ def create_poll(payload):
 
     db.polls.insert_one(poll)
 
-    poll["_id"] = str(poll["_id"])
-
-    return jsonify(poll), 201
+    return return_json(poll), 201
 
 
 # Get all polls from logged user.
@@ -61,10 +59,9 @@ def get_polls():
 
     user_polls = []
     for poll in db.polls.find({"_user_id": user_id}):
-        poll["_id"] = str(poll["_id"])
         user_polls.append(poll)
 
-    return jsonify(user_polls), 200
+    return return_json(user_polls), 200
 
 
 # Get poll by ID.
@@ -78,12 +75,7 @@ def get_poll(poll_id):
     if not poll:
         return return_error("Poll with that Id not found!", 404)
 
-    poll["_id"] = str(poll["_id"])
-
-    if poll.get("_user_id"):
-        poll["_user_id"] = str(poll["_user_id"])
-
-    return jsonify(poll), 200
+    return return_json(poll), 200
 
 
 # Delete poll created by logged user.
@@ -97,7 +89,7 @@ def delete_poll(poll_id):
 
     db.polls.delete_one({"_id": ObjectId(poll_id), "_user_id": user_id})
 
-    return jsonify(""), 204
+    return return_json(""), 204
 
 
 # Vote in public poll once.
@@ -121,9 +113,4 @@ def vote_poll(payload, poll_id):
 
     db.polls.replace_one({"_id": ObjectId(poll_id)}, poll)
 
-    poll["_id"] = str(poll["_id"])
-
-    if poll.get("_user_id"):
-        poll["_user_id"] = str(poll["_user_id"])
-
-    return jsonify(poll), 201
+    return return_json(poll), 201
