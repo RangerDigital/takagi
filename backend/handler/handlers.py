@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from extensions import jwt
+from extensions import jwt, rd
 from helpers import return_error
 
 handlers = Blueprint("handlers", __name__)
@@ -12,6 +12,12 @@ handlers = Blueprint("handlers", __name__)
 @handlers.app_errorhandler(500)
 def error_handler(error):
     return return_error(error.description, error.code)
+
+
+@handlers.app_errorhandler(429)
+def limit_handler(error):
+    rd.incr("counters:limit_hit")
+    return return_error("Too many requests! Limit: " + error.description, error.code)
 
 
 @jwt.expired_token_loader
