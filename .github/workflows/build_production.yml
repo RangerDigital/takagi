@@ -19,9 +19,6 @@ jobs:
       with:
         version: latest
 
-    - name: Run PyLint
-      run: sudo apt install pylint; pylint -d E0401 ./backend
-
     - name: Install Dev requirements
       run: pip3 install -r ./backend/dev-requirements.txt
 
