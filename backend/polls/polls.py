@@ -1,6 +1,6 @@
 import time
 
-from flask import Blueprint, jsonify
+from flask import Blueprint
 from flask_jwt_extended import get_jwt_identity, jwt_optional, jwt_required
 
 from bson.objectid import ObjectId
