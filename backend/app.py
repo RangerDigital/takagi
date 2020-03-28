@@ -1,5 +1,5 @@
 from flask import Flask
-from extensions import jwt, config
+from extensions import jwt, limiter, config
 
 from user.users import users
 from user.auth import auth
@@ -19,6 +19,7 @@ def create_app():
     """
     app = Flask(__name__)
     jwt.init_app(app)
+    limiter.init_app(app)
 
     app.config["JWT_SECRET_KEY"] = config.JWT_SECRET_KEY
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = config.JWT_ACCESS_TOKEN_EXPIRES
@@ -27,7 +28,7 @@ def create_app():
     app.register_blueprint(users)
 
     app.register_blueprint(polls)
-    
+
     app.register_blueprint(health)
     app.register_blueprint(handlers)
 

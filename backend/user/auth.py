@@ -7,7 +7,7 @@ from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_requir
 from bson.objectid import ObjectId
 from marshmallow import Schema, fields
 
-from extensions import db, rd
+from extensions import db, rd, limiter
 from helpers import validate_schema, return_error, return_json
 
 auth = Blueprint("auth", __name__)
@@ -48,6 +48,7 @@ def generate_hash(password):
 
 # Get JWT token from email and password.
 @auth.route("/users/login", methods=["POST"])
+@limiter.limit("500/day;50/minute")
 @validate_schema(Auth())
 def login_user(payload):
     rd.incr("counters:logins")
@@ -72,6 +73,7 @@ def login_user(payload):
 
 # Create new user.
 @auth.route("/users/register", methods=["POST"])
+@limiter.limit("250/day;25/minute")
 @validate_schema(Register())
 def register_user(payload):
     if db.users.find_one({"email": payload["email"]}):

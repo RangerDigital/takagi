@@ -6,7 +6,7 @@ from flask_jwt_extended import get_jwt_identity, jwt_optional, jwt_required
 from bson.objectid import ObjectId
 from marshmallow import Schema, fields
 
-from extensions import db, rd
+from extensions import db, rd, limiter
 from helpers import validate_schema, return_error, return_json
 
 polls = Blueprint("polls", __name__)
@@ -24,6 +24,7 @@ class Vote(Schema):
 
 # Create new poll.
 @polls.route("/polls", methods=["POST"])
+@limiter.limit("500/day;50/minute")
 @jwt_optional
 @validate_schema(Poll())
 def create_poll(payload):
@@ -94,6 +95,7 @@ def delete_poll(poll_id):
 
 # Vote in public poll once.
 @polls.route("/polls/<poll_id>/vote", methods=["POST"])
+@limiter.limit("1000/day;100/minute")
 @validate_schema(Vote())
 def vote_poll(payload, poll_id):
     if not ObjectId.is_valid(poll_id):
