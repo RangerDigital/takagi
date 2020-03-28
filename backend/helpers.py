@@ -22,7 +22,8 @@ def return_json(payload, status_code=200):
         def default(self, o):
             if isinstance(o, ObjectId):
                 return str(o)
-                return json.JSONEncoder.default(self, o)
+
+            return json.JSONEncoder.default(self, o)
 
     payload = json.dumps(payload, cls=JSONEncoder)
 
