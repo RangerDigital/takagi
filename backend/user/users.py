@@ -22,7 +22,7 @@ def get_logged_user():
     user = db.users.find_one({"_id":  ObjectId(get_jwt_identity())}, {"password": 0, "salt": 0})
 
     if not user:
-        return return_error("User with that Id not found!", 404)
+        return return_error("User not found!", 404)
 
     user["_id"] = str(user["_id"])
 
@@ -38,7 +38,7 @@ def update_logged_user(payload):
     user = db.users.find_one({"_id":  user_id})
 
     # Check if Email is already used.
-    if db.users.find_one({"_id": {"$ne": user_id}, "email": payload.get("email"), "initiated": True}):
+    if db.users.find_one({"_id": {"$ne": user_id}, "email": payload.get("email")}):
         return return_error("Email address is already in use!", 400)
 
     user.update(payload)
