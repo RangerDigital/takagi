@@ -46,7 +46,7 @@ def generate_hash(password):
     return salt, password_hash
 
 
-# Get JWT token with email and password.
+# Get JWT token from email and password.
 @auth.route("/users/login", methods=["POST"])
 @validate_schema(Auth())
 def login_user(payload):
@@ -66,18 +66,16 @@ def login_user(payload):
     return jsonify({"jwt_token": jwt_token}), 200
 
 
+# Create new user.
 @auth.route("/users/register", methods=["POST"])
 @validate_schema(Register())
 def register_user(payload):
     if db.users.find_one({"email": payload["email"]}):
         return return_error("Email address is already in use!", 400)
 
-    user = {}
-    user.update(payload)
+    payload["salt"], payload["password"] = generate_hash(payload["password"])
 
-    user["salt"], user["password"] = generate_hash(payload["password"])
-
-    db.users.insert_one(user)
+    db.users.insert_one(payload)
 
     return jsonify(""), 204
 
