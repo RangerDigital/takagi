@@ -19,11 +19,11 @@ jobs:
       with:
         version: latest
 
+    - name: Run PyLint
+      run: apt install pylint; pylint -d E0401 ./backend
+
     - name: Install Dev requirements
       run: pip3 install -r ./backend/dev-requirements.txt
-
-    - name: Run PyLint
-      run: pylint -d E0401 ./backend
 
     - name: Run Buildx for test build
       run: docker buildx build --tag rangerdigital/takagi:latest --platform linux/amd64 --output type=docker backend/.
