@@ -1,14 +1,14 @@
 import os
 import hashlib
 
-from flask import Blueprint, jsonify
+from flask import Blueprint
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 
 from bson.objectid import ObjectId
 from marshmallow import Schema, fields
 
 from extensions import db
-from helpers import validate_schema, return_error
+from helpers import validate_schema, return_error, return_json
 
 auth = Blueprint("auth", __name__)
 
@@ -63,7 +63,7 @@ def login_user(payload):
 
     jwt_token = create_access_token(identity=str(user["_id"]))
 
-    return jsonify({"jwt_token": jwt_token}), 200
+    return return_json({"jwt_token": jwt_token}), 200
 
 
 # Create new user.
@@ -77,7 +77,7 @@ def register_user(payload):
 
     db.users.insert_one(payload)
 
-    return jsonify(""), 204
+    return return_json(""), 204
 
 
 # Update password for logged user.
@@ -95,4 +95,4 @@ def update_password(payload):
 
     db.users.replace_one({"_id": user["_id"]}, user)
 
-    return jsonify(""), 204
+    return return_json(""), 204

@@ -1,11 +1,11 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from bson.objectid import ObjectId
 from marshmallow import Schema, fields
 
 from extensions import db
-from helpers import validate_schema, return_error
+from helpers import validate_schema, return_error, return_json
 
 users = Blueprint("users", __name__)
 
@@ -24,9 +24,7 @@ def get_logged_user():
     if not user:
         return return_error("User not found!", 404)
 
-    user["_id"] = str(user["_id"])
-
-    return jsonify(user)
+    return return_json(user)
 
 
 # Update info about logged user.
@@ -44,9 +42,7 @@ def update_logged_user(payload):
     user.update(payload)
     db.users.replace_one({"_id": user_id}, user)
 
-    user["_id"] = str(user["_id"])
-
     del user["salt"]
     del user["password"]
 
-    return jsonify(user)
+    return return_json(user)
