@@ -18,8 +18,9 @@ def return_json(payload, status_code=200):
 
     """
 
+    # Disable PyLint false positive method-hidden error.
     class JSONEncoder(json.JSONEncoder):
-        def default(self, o):
+        def default(self, o): # pylint: disable=E0202
             if isinstance(o, ObjectId):
                 return str(o)
 
