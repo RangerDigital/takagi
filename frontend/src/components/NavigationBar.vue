@@ -79,7 +79,7 @@ export default {
   margin: 2rem;
 }
 
-/* Destop Only */
+/* Desktop Only */
 .nav-desktop {
   max-width: 800px;
   margin: 0 auto;
