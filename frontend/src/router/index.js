@@ -24,6 +24,11 @@ const routes = [
     name: 'Navigation',
     component: () => import('../views/Navigation.vue')
   },
+  {
+    path: '/create',
+    name: 'Create',
+    component: () => import('../views/Create.vue')
+  },
 ]
 
 const router = new VueRouter({

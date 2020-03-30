@@ -1,0 +1,19 @@
+<svg id="mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #626468;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <path id="Path_92" data-name="Path 92" class="cls-1" d="M0,0H24V24H0Z"/>
+  <rect id="Rectangle_30" data-name="Rectangle 30" class="cls-2" width="18" height="14" rx="2" transform="translate(3 5)"/>
+  <path id="Path_93" data-name="Path 93" class="cls-2" d="M3,7l9,6,9-6"/>
+</svg>
