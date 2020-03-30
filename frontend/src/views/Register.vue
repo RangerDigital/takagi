@@ -1,56 +1,54 @@
 <template>
-<section class="full-page">
+<section class="g-full-page">
   <NavigationBar title="Sign Up" />
-  <div class="register-flex">
 
-    <ValidationObserver v-slot="{ invalid }">
-      <div>
+  <ValidationObserver v-slot="{ invalid }">
+    <div class="g-component-flex">
+      <form>
         <div class="form-input">
-          <p class="text-label"><img src="../assets/icon-tag.svg">Name</p>
+          <p class="form-label"><img class="form-icon" src="../assets/icon-tag.svg">Name</p>
           <ValidationProvider rules="required|min:3|max:15" v-slot="v">
-            <SingleInput v-model.lazy="form.name" placeholder="e.g. John" />
-            <p class="text-error" v-if="v.errors.length"><img class="icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
+            <SingleInput v-model="form.name" placeholder="e.g. John" />
+            <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
             <p class="text-center" v-else>. . .</p>
           </ValidationProvider>
         </div>
 
         <div class="form-input">
-          <p class="text-label"><img src="../assets/icon-lock.svg">E-Mail</p>
+          <p class="form-label"><img class="form-icon" src="../assets/icon-lock.svg">E-Mail</p>
           <ValidationProvider rules="required|email" v-slot="v">
-            <SingleInput v-model.lazy="form.email" type="email" placeholder="e.g. me@gmail.com" />
-            <p class="text-error" v-if="v.errors.length"><img class="icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
+            <SingleInput v-model="form.email" type="email" placeholder="e.g. me@gmail.com" />
+            <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
             <p class="text-center" v-else>. . .</p>
           </ValidationProvider>
         </div>
 
-        <div class="form-input">
-          <p class="text-label"><img src="../assets/icon-mail.svg">Password</p>
-          <ValidationProvider rules="required|min:8" v-slot="v">
-            <SingleInput v-model.lazy="form.password" type="password" placeholder="e.g. Pretty obvious, right?" />
-            <p class="text-error" v-if="v.errors.length"><img class="icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
-            <p class="text-center" v-else>. . .</p>
-          </ValidationProvider>
-        </div>
+        <ValidationProvider class="form-input" rules="required|min:8" v-slot="v">
+          <p class="form-label"><img class="form-icon" src="../assets/icon-mail.svg">Password</p>
+          <SingleInput v-model.lazy="form.password" type="password" placeholder="e.g. Pretty obvious, right?" />
+          <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
+          <p class="text-center" v-else>. . .</p>
+        </ValidationProvider>
 
-
-        <p class="text-center">Existing user? <router-link to="/login">Sign In</router-link>
+        <p class="text-center text-link">
+          Existing user? <router-link to="/login">Sign In</router-link>
         </p>
+      </form>
 
+      <div>
+        <TextButton @clickEvent="createUser" :disabled="invalid">REGISTER</TextButton>
+        <p class="text-error"> {{ serverErrorMsg }} </p>
+        <p v-show="isSuccess" class="text-center">Success! Now you can Sign In!</p>
       </div>
-
-      <TextButton @clickEvent="createUser" :disabled="invalid"> {{buttonMsg}} </TextButton>
-
-      <p class="text-error"> {{ errorMsg }} </p>
-      <p v-show="isSuccess" class="text-center">Success! Now you can Sign In!</p>
-    </ValidationObserver>
-  </div>
+    </div>
+  </ValidationObserver>
 </section>
 </template>
 
 <script>
-import NavigationBar from "../components/NavigationBar.vue";
-import SingleInput from "../components/SingleInput.vue";
-import TextButton from "../components/TextButton.vue";
+import NavigationBar from '../components/NavigationBar.vue';
+import SingleInput from '../components/SingleInput.vue';
+import TextButton from '../components/TextButton.vue';
 
 import {
   ValidationProvider,
@@ -86,7 +84,7 @@ extend('min', {
 });
 
 export default {
-  name: "Register",
+  name: 'Register',
   components: {
     NavigationBar,
     TextButton,
@@ -97,13 +95,13 @@ export default {
   data() {
     return {
       form: {
-        name: "",
-        email: "",
-        password: "",
+        name: '',
+        email: '',
+        password: '',
       },
-      errorMsg: "",
-      buttonMsg: "REGISTER",
+
       isSuccess: false,
+      serverErrorMsg: '',
     };
   },
   methods: {
@@ -114,17 +112,15 @@ export default {
 
       this.$http
         .post('/users/register', this.form)
-        .then(response => {
-          console.log(response)
-          this.buttonMsg = 'DONE!'
+        .then(() => {
           this.isSuccess = true;
+
           setTimeout(() => {
             this.$router.push('/login')
           }, 3000)
         })
         .catch(error => {
-          console.log(error.response)
-
+          this.isSuccess = false;
           this.errorMsg = error.response.data.msg;
         });
     }
@@ -133,22 +129,12 @@ export default {
 </script>
 
 <style scoped>
-.register-flex {
-  min-height: 90%;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: space-around;
-}
-
 .form-input {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
-.text-label {
+.form-label {
   color: #626468;
   text-align: left;
 }
@@ -162,22 +148,12 @@ export default {
   color: #FF7171;
 }
 
-.text-center a {
+.text-link a {
   text-decoration: none;
   color: #121213;
 }
 
-/* Refactor the same! */
-.icon {
-  display: inline;
-
-  height: 2.5rem;
-  vertical-align: text-bottom;
-
-  margin-right: 0.5rem;
-}
-
-.text-label img {
+.form-icon {
   display: inline;
 
   height: 2.5rem;

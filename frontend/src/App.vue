@@ -32,9 +32,26 @@ p {
   text-align: center;
 }
 
+
+/* Global Helpers */
 .full-page {
   height: 100vh;
   width: 100vw;
+}
+
+.g-full-page {
+  height: 100vh;
+  width: 100vw;
+}
+
+.g-component-flex {
+  min-height: 87%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-around;
 }
 
 @media only screen and (min-width: 600px) {
