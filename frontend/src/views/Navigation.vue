@@ -1,8 +1,8 @@
 <template>
-<section class="full-page">
-  <NavigationBar title="Navigation" mode='back' />
+<section class="g-full-page">
+  <NavigationBar title="Navigation" mode="back" />
 
-  <div class="navigation-flex">
+  <div class="g-component-flex">
     <div>
       <IconButton @clickEvent="$router.push('/create')">
         <p>CREATE POLL</p><img src="../assets/icon-arrow-bar.svg" />
@@ -12,12 +12,11 @@
     </div>
 
     <!-- If Not Logged -->
-    <template v-if="!isLogged">
+    <template v-if="!isUserLogged">
       <div>
         <IconButton @clickEvent="$router.push('/login')">
           <p>SIGN IN</p><img src="../assets/icon-arrow-bar.svg" />
         </IconButton>
-
         <p class="text-label">Login to your existing account.</p>
       </div>
 
@@ -25,13 +24,12 @@
         <IconButton @clickEvent="$router.push('/register')">
           <p>SIGN UP</p><img src="../assets/icon-arrow-bar.svg" />
         </IconButton>
-
         <p class="text-label">Create a new account.</p>
       </div>
     </template>
 
     <!-- If Logged -->
-    <template v-if="isLogged">
+    <template v-if="isUserLogged">
       <div>
         <IconButton @clickEvent="$router.push('/polls')">
           <p>MY POLLS</p><img src="../assets/icon-arrow-bar.svg" />
@@ -49,15 +47,15 @@
       </div>
     </template>
   </div>
-  <FooterBar />
 
+  <FooterBar />
 </section>
 </template>
 
 
 <script>
-import NavigationBar from "../components/NavigationBar.vue";
 import FooterBar from "../components/FooterBar.vue";
+import NavigationBar from "../components/NavigationBar.vue";
 
 import IconButton from "../components/IconButton.vue";
 
@@ -70,12 +68,13 @@ export default {
   },
   data() {
     return {
-      isLogged: false,
+      isUserLogged: false,
     };
   },
-  methods: {
-    clickTest: function() {
-      console.log("Clicked!");
+  created() {
+    // Check if user is logged.
+    if (localStorage.getItem('jwt_token')) {
+      this.isUserLogged = true;
     }
   },
 };
@@ -83,14 +82,9 @@ export default {
 
 
 <style scoped>
-.navigation-flex {
+.g-component-flex {
   min-height: 85%;
 
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: space-around;
 }
 
 .text-label {
