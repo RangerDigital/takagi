@@ -28,10 +28,24 @@ p {
 
   color: #121213;
   letter-spacing: 0.05em;
+
+  text-align: center;
 }
 
 .full-page {
   height: 100vh;
   width: 100vw;
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media only screen and (max-height: 550px) {
+  .full-page {
+    height: 150vh;
+  }
 }
 </style>

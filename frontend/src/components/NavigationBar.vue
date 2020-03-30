@@ -76,6 +76,8 @@ export default {
 
 <style scoped>
 .flex {
+  max-height: 10vh;
+
   display: flex;
   align-items: center;
   justify-content: space-between;

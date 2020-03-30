@@ -12,6 +12,7 @@
 
 <style scoped>
 .footer-flex {
+  max-height: 10%;
   width: 100%;
 
   display: flex;
@@ -28,5 +29,7 @@
   text-align: center;
 
   font-size: 1.2rem;
+
+  margin: 1em;
 }
 </style>

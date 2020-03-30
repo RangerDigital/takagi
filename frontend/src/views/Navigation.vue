@@ -48,8 +48,9 @@
         <p class="text-label">Manage your account.</p>
       </div>
     </template>
+    <FooterBar />
   </div>
-  <FooterBar />
+
 </section>
 </template>
 
@@ -83,13 +84,13 @@ export default {
 
 <style scoped>
 .navigation-flex {
-  min-height: 80%;
+  min-height: 90%;
 
   display: flex;
   flex-direction: column;
 
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .text-label {
