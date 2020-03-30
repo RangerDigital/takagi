@@ -121,7 +121,7 @@ export default {
         })
         .catch(error => {
           this.isSuccess = false;
-          this.errorMsg = error.response.data.msg;
+          this.serverErrorMsg = error.response.data.msg;
         });
     }
   }
