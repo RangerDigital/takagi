@@ -4,28 +4,50 @@
 
   <div class="navigation-flex">
     <div>
-      <IconButton @clickEvent="$router.push('/polls')">
+      <IconButton @clickEvent="$router.push('/create')">
         <p>CREATE POLL</p><img src="../assets/icon-arrow-bar.svg" />
       </IconButton>
 
       <p class="text-label">Create a new poll.</p>
     </div>
 
-    <div>
-      <IconButton @clickEvent="$router.push('/login')">
-        <p>SIGN IN</p><img src="../assets/icon-arrow-bar.svg" />
-      </IconButton>
+    <!-- If Not Logged -->
+    <template v-if="!isLogged">
+      <div>
+        <IconButton @clickEvent="$router.push('/login')">
+          <p>SIGN IN</p><img src="../assets/icon-arrow-bar.svg" />
+        </IconButton>
 
-      <p class="text-label">Login to your existing account.</p>
-    </div>
+        <p class="text-label">Login to your existing account.</p>
+      </div>
 
-    <div>
-      <IconButton @clickEvent="$router.push('/register')">
-        <p>SIGN UP</p><img src="../assets/icon-arrow-bar.svg" />
-      </IconButton>
+      <div>
+        <IconButton @clickEvent="$router.push('/register')">
+          <p>SIGN UP</p><img src="../assets/icon-arrow-bar.svg" />
+        </IconButton>
 
-      <p class="text-label">Create a new account.</p>
-    </div>
+        <p class="text-label">Create a new account.</p>
+      </div>
+    </template>
+
+    <!-- If Logged -->
+    <template v-if="isLogged">
+      <div>
+        <IconButton @clickEvent="$router.push('/polls')">
+          <p>MY POLLS</p><img src="../assets/icon-arrow-bar.svg" />
+        </IconButton>
+
+        <p class="text-label">Manage your existing polls.</p>
+      </div>
+
+      <div>
+        <IconButton @clickEvent="$router.push('/register')">
+          <p>MY PROFILE</p><img src="../assets/icon-arrow-bar.svg" />
+        </IconButton>
+
+        <p class="text-label">Manage your account.</p>
+      </div>
+    </template>
   </div>
   <FooterBar />
 </section>
@@ -44,6 +66,11 @@ export default {
     NavigationBar,
     IconButton,
     FooterBar,
+  },
+  data() {
+    return {
+      isLogged: false,
+    };
   },
   methods: {
     clickTest: function() {
