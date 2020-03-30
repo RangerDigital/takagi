@@ -1,0 +1,21 @@
+<svg id="arrow-bar-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path id="Path_37" data-name="Path 37" class="cls-1" d="M0,0H24V24H0Z"/>
+  <line id="Line_13" data-name="Line 13" class="cls-2" x1="10" transform="translate(10 12)"/>
+  <line id="Line_14" data-name="Line 14" class="cls-2" x1="4" y2="4" transform="translate(16 12)"/>
+  <line id="Line_15" data-name="Line 15" class="cls-2" x1="4" y1="4" transform="translate(16 8)"/>
+  <line id="Line_16" data-name="Line 16" class="cls-2" y2="16" transform="translate(4 4)"/>
+</svg>

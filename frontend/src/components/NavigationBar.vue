@@ -5,33 +5,48 @@
       <h1>{{title}}</h1>
       <div class="nav-divider"></div>
     </div>
-    
-    <router-link to="/navigation"><img src="../assets/icon-nav.svg" class="nav-icon"></router-link>
+
+    <!-- Mode: menu - Hamburger Menu -->
+    <router-link to="/navigation" v-if="mode == 'menu'"><img src="../assets/icon-nav.svg" class="nav-icon"></router-link>
+
+    <!-- Mode: back - Go Back Button -->
+    <img @click="$router.go(-1)" v-if="mode == 'back'" src="../assets/icon-x.svg" class="nav-icon">
+
   </nav>
-  
+
   <nav class="nav-desktop flex">
     <div class="nav-logo">
       <h1>{{title}}</h1>
       <div class="nav-divider"></div>
     </div>
-    
+
     <div class="nav-desktop-links flex">
-    <router-link to="/create" class="nav-link"><p>Create Poll</p></router-link>
-    
-    <!-- If Not Logged -->
-    <template v-if="!isLogged">
-      <router-link to="/login" class="nav-link"><p>Sign In</p></router-link>
-      <router-link to="/register" class="nav-link"><p>Sign Up</p></router-link>
-    </template>
-    
-    <!-- If Logged -->
-    <template v-if="isLogged">
-      <router-link to="/polls" class="nav-link"><p>Polls</p></router-link>
-      <router-link to="/profile" class="nav-link"><p>Profile</p></router-link>
-    </template>
-    
+      <router-link to="/create" class="nav-link">
+        <p>Create Poll</p>
+      </router-link>
+
+      <!-- If Not Logged -->
+      <template v-if="!isLogged">
+        <router-link to="/login" class="nav-link">
+          <p>Sign In</p>
+        </router-link>
+        <router-link to="/register" class="nav-link">
+          <p>Sign Up</p>
+        </router-link>
+      </template>
+
+      <!-- If Logged -->
+      <template v-if="isLogged">
+        <router-link to="/polls" class="nav-link">
+          <p>Polls</p>
+        </router-link>
+        <router-link to="/profile" class="nav-link">
+          <p>Profile</p>
+        </router-link>
+      </template>
+
     </div>
-    
+
   </nav>
 </section>
 </template>
@@ -39,21 +54,27 @@
 
 <script>
 export default {
-  name: "NavigationBar",
+  name: 'NavigationBar',
   data() {
     return {
       isLogged: false,
     };
   },
-  props: [
-    'title',
-  ],
+  props: {
+    'title': {
+      type: String,
+      default: 'Takagi'
+    },
+    'mode': {
+      type: String,
+      default: 'menu'
+    },
+  },
 }
 </script>
 
 
 <style scoped>
-
 .flex {
   display: flex;
   align-items: center;
@@ -69,7 +90,7 @@ export default {
   width: 60px;
   height: 2.5px;
   background-color: #FF7171;
-  
+
   border-radius: 1000px;
 }
 
@@ -86,14 +107,14 @@ export default {
 }
 
 .nav-link {
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .nav-link p {
   font-size: 1.5rem;
   padding-left: 3em;
   padding-right: 3em;
-  
+
   transition: all 0.5s;
 }
 
@@ -106,8 +127,8 @@ export default {
   opacity: 60%;
 }
 
-@media only screen and (min-width: 600px)  {
-  .nav-mobile{
+@media only screen and (min-width: 600px) {
+  .nav-mobile {
     display: none;
   }
 }
@@ -117,5 +138,4 @@ export default {
     display: none;
   }
 }
-
 </style>

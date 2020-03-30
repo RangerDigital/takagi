@@ -29,4 +29,9 @@ p {
   color: #121213;
   letter-spacing: 0.05em;
 }
+
+.full-page {
+  height: 100vh;
+  width: 100vw;
+}
 </style>
