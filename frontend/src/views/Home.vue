@@ -19,8 +19,8 @@
 
     <div>
       <p>Or, To save your polls</p>
-      <OutlineButton @clickEvent="$router.push('/create')">SIGN UP</OutlineButton>
-      <p class="text-label">Existing user? <a class="text-link">Sign In</a></p>
+      <OutlineButton @clickEvent="$router.push('/register')">SIGN UP</OutlineButton>
+      <p class="text-label">Existing user? <a @click="$router.push('/login')" class="text-link">Sign In</a></p>
     </div>
 
   </div>
