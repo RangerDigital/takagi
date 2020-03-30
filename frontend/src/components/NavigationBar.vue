@@ -76,7 +76,7 @@ export default {
 
 <style scoped>
 .flex {
-  max-height: 10vh;
+  max-height: 10%;
 
   display: flex;
   align-items: center;

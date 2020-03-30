@@ -84,7 +84,7 @@ export default {
 
 <style scoped>
 .navigation-flex {
-  min-height: 80%;
+  min-height: 85%;
 
   display: flex;
   flex-direction: column;

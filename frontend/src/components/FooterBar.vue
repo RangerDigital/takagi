@@ -12,7 +12,7 @@
 
 <style scoped>
 .footer-flex {
-  max-height: 10%;
+  max-height: 1%;
   width: 100%;
 
   display: flex;
@@ -26,10 +26,14 @@
 
 .text-label {
   color: #626468;
+  margin: 1em;
   text-align: center;
 
   font-size: 1.2rem;
+  transition: all 0.5s;
+}
 
-  margin: 1em;
+.text-label:hover {
+  color: #FF7171;
 }
 </style>
