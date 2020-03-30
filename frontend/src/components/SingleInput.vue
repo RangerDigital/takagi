@@ -1,6 +1,23 @@
 <template>
-<input class="input">
+<input v-on:input="updateValue($event.target.value)" class="input">
 </template>
+
+
+<script>
+export default {
+  name: "SingleInput",
+  props: {
+    value: {
+      type: String
+    }
+  },
+  methods: {
+    updateValue: function(value) {
+      this.$emit('input', value)
+    }
+  },
+};
+</script>
 
 
 <style scoped>
@@ -31,7 +48,10 @@
 }
 
 .input:focus {
-  border: 1.5px solid #FF7171;
   outline: none;
+}
+
+.input-error {
+  border: 1.5px solid #FF7171;
 }
 </style>

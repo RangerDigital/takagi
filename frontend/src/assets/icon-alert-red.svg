@@ -1,0 +1,19 @@
+<svg id="alert-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #ff7171;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path id="Path_148" data-name="Path 148" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="Path_149" data-name="Path 149" class="cls-2" d="M12,9v2m0,4v.01"/>
+  <path id="Path_150" data-name="Path 150" class="cls-2" d="M5.07,19H19a2,2,0,0,0,1.75-2.75L13.75,4a2,2,0,0,0-3.5,0l-7,12.25A2,2,0,0,0,5,19"/>
+</svg>
