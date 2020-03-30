@@ -114,7 +114,25 @@ export default {
       this.form.options.splice(index, 1);
     },
     createPoll() {
-      console.log('Create Poll');
+      if (this.isSuccess) {
+        return;
+      }
+
+      this.$http
+        .post('/polls', this.form)
+        .then(response => {
+          console.log(response);
+
+          this.isSuccess = true;
+
+          setTimeout(() => {
+            this.$router.replace('/polls/' + response.data._id);
+          }, 3000)
+        })
+        .catch(error => {
+          this.isSuccess = false;
+          this.serverErrorMsg = error.response.data.msg;
+        });
     }
   }
 };
