@@ -4,6 +4,32 @@
 </div>
 </template>
 
+<script>
+export default {
+  created() {
+    // Load token from localStorage, validate It.
+    var jwt_token = localStorage.getItem('jwt_token');
+    if (jwt_token) {
+      this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + jwt_token;
+
+      this.$http
+        .get('/users/me')
+        .then(response => {
+          console.log(response);
+
+        })
+        .catch(error => {
+          console.log(error)
+
+          localStorage.removeItem('jwt_token');
+          this.$http.defaults.headers.common['Authorization'] = '';
+        });
+    }
+  },
+}
+</script>
+
+
 <style>
 @import './assets/css/reset.css';
 @import url('https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap');
