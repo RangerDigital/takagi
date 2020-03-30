@@ -45,7 +45,7 @@ p {
 
 @media only screen and (max-height: 550px) {
   .full-page {
-    height: 150vh;
+    height: 180vh;
   }
 }
 </style>

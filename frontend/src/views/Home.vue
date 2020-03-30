@@ -1,5 +1,5 @@
 <template>
-<section class="full-page">
+<section class="full-page hero-bg">
   <NavigationBar title="Takagi" />
   <div class="home-flex">
     <h1 class="home-text-hero">TAKAGI</h1>
@@ -83,5 +83,22 @@ export default {
 .text-label {
   color: #626468;
   text-align: center;
+}
+
+.hero-bg {
+  background-image: url("../assets/bg-takagi.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 600px) {
+  .home-text-hero {
+    font-size: 5.5rem;
+  }
+
+  .home-text h1 {
+    font-size: 3.5rem;
+  }
 }
 </style>
