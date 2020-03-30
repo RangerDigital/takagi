@@ -37,4 +37,8 @@ export default {
   color: #121213;
   padding: 0.6em;
 }
+
+.button:disabled {
+  opacity: 10%;
+}
 </style>

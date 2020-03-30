@@ -1,0 +1,19 @@
+<svg id="square-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #ff7171;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path id="Path_128" data-name="Path 128" class="cls-1" d="M0,0H24V24H0Z"/>
+  <rect id="Rectangle_41" data-name="Rectangle 41" class="cls-2" width="16" height="16" rx="2" transform="translate(4 4)"/>
+  <path id="Path_129" data-name="Path 129" class="cls-2" d="M10,10l4,4m0-4-4,4"/>
+</svg>

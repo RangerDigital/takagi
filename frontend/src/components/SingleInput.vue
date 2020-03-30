@@ -1,5 +1,5 @@
 <template>
-<input v-on:input="updateValue($event.target.value)" class="input">
+<input :value="value" v-on:input="updateValue($event.target.value)" v-on:keyup.enter="clickEnter" class="input">
 </template>
 
 
@@ -14,8 +14,11 @@ export default {
   methods: {
     updateValue: function(value) {
       this.$emit('input', value)
+    },
+    clickEnter: function() {
+      this.$emit('onEnter')
     }
-  },
+  }
 };
 </script>
 

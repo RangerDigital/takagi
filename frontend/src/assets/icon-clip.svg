@@ -1,0 +1,19 @@
+<svg id="clipboard" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #626468;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <path id="Path_70" data-name="Path 70" class="cls-1" d="M0,0H21V21H0Z"/>
+  <path id="Path_71" data-name="Path 71" class="cls-2" d="M8.5,5H6.75A1.75,1.75,0,0,0,5,6.75v10.5A1.75,1.75,0,0,0,6.75,19H15.5a1.75,1.75,0,0,0,1.75-1.75V6.75A1.75,1.75,0,0,0,15.5,5H13.75" transform="translate(-0.625 -0.625)"/>
+  <rect id="Rectangle_28" data-name="Rectangle 28" class="cls-2" width="5.25" height="3.5" rx="1.75" transform="translate(7.875 2.625)"/>
+</svg>

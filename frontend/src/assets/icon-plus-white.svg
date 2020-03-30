@@ -1,0 +1,20 @@
+<svg id="square-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path id="Path_130" data-name="Path 130" class="cls-1" d="M0,0H24V24H0Z"/>
+  <rect id="Rectangle_42" data-name="Rectangle 42" class="cls-2" width="16" height="16" rx="2" transform="translate(4 4)"/>
+  <line id="Line_73" data-name="Line 73" class="cls-2" x2="6" transform="translate(9 12)"/>
+  <line id="Line_74" data-name="Line 74" class="cls-2" y2="6" transform="translate(12 9)"/>
+</svg>

@@ -42,7 +42,7 @@ export default {
 }
 
 .button img {
-  height: 1.7rem;
+  height: 2rem;
   margin: 0.6em;
 }
 </style>
