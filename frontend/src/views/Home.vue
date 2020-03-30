@@ -2,12 +2,14 @@
 <section class="full-page hero-bg">
   <NavigationBar title="Takagi" />
   <div class="home-flex">
-    <h1 class="home-text-hero">TAKAGI</h1>
+    <div>
+      <h1 class="home-text-hero">TAKAGI</h1>
 
-    <div class="home-text">
-      <h1>Create <span class="text-red">instant</span> and</h1>
-      <h1><span class="text-red">anonymous</span> polls</h1>
-      <h1>for <span class="text-red">free</span> !</h1>
+      <div class="home-text">
+        <h1>Create <span class="text-red">instant</span> and</h1>
+        <h1><span class="text-red">anonymous</span> polls</h1>
+        <h1>for <span class="text-red">free</span> !</h1>
+      </div>
     </div>
 
     <div>
@@ -21,8 +23,8 @@
       <p class="text-label">Existing user? <a class="text-link">Sign In</a></p>
     </div>
 
-    <FooterBar />
   </div>
+  <FooterBar />
 
 </section>
 </template>
@@ -47,13 +49,13 @@ export default {
 
 <style scoped>
 .home-flex {
-  min-height: 90%;
+  min-height: 80%;
 
   display: flex;
   flex-direction: column;
 
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .home-text-hero {
