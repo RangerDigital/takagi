@@ -41,7 +41,7 @@
       <TextButton @clickEvent="createUser" :disabled="invalid"> {{buttonMsg}} </TextButton>
 
       <p class="text-error"> {{ errorMsg }} </p>
-      <p class="text-center"> {{ successMsg }} </p>
+      <p v-show="isSuccess" class="text-center">Success! Now you can Sign In!</p>
     </ValidationObserver>
   </div>
 </section>
@@ -103,17 +103,21 @@ export default {
       },
       errorMsg: "",
       buttonMsg: "REGISTER",
-      successMsg: "",
+      isSuccess: false,
     };
   },
   methods: {
     createUser() {
+      if (this.isSuccess) {
+        return;
+      }
+
       this.$http
         .post('/users/register', this.form)
         .then(response => {
           console.log(response)
           this.buttonMsg = 'DONE!'
-          this.successMsg = 'Success! Now you can Sign In!'
+          this.isSuccess = true;
           setTimeout(() => {
             this.$router.push('/login')
           }, 3000)
