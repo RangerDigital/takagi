@@ -26,7 +26,7 @@
       </router-link>
 
       <!-- If Not Logged -->
-      <template v-if="!isLogged">
+      <template v-if="!isUserLogged">
         <router-link to="/login" class="nav-link">
           <p>Sign In</p>
         </router-link>
@@ -36,7 +36,7 @@
       </template>
 
       <!-- If Logged -->
-      <template v-if="isLogged">
+      <template v-if="isUserLogged">
         <router-link to="/polls" class="nav-link">
           <p>Polls</p>
         </router-link>
@@ -57,7 +57,7 @@ export default {
   name: 'NavigationBar',
   data() {
     return {
-      isLogged: false,
+      isUserLogged: false,
     };
   },
   props: {
@@ -69,6 +69,12 @@ export default {
       type: String,
       default: 'menu'
     },
+  },
+  created() {
+    // Check if user is logged.
+    if (localStorage.getItem('jwt_token')) {
+      this.isUserLogged = true;
+    }
   },
 }
 </script>
