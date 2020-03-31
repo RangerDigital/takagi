@@ -62,7 +62,7 @@ export default {
       this.$router.push('/login')
     }
   },
-  created() {
+  mounted() {
     // Check if user is logged.
     if (localStorage.getItem('jwt_token')) {
       this.isUserLogged = true;

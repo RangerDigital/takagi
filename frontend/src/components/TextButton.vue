@@ -1,5 +1,5 @@
 <template>
-<button class="button g-clickable" @click="$emit('clickEvent');">
+<button class="button-style g-clickable" @click="$emit('clickEvent');">
   <p>
     <slot>CLICK ME</slot>
   </p>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style scoped>
-.button {
+.button-style {
   width: 25rem;
 
   display: block;
@@ -29,7 +29,7 @@ export default {
   margin-bottom: 1rem;
 }
 
-.button p {
+.button-style p {
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -38,7 +38,7 @@ export default {
   padding: 0.6em;
 }
 
-.button:disabled {
+.button-style:disabled {
   opacity: 10%;
 }
 </style>
