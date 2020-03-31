@@ -43,7 +43,7 @@ import OutlineButton from "../components/OutlineButton.vue";
 
 
 export default {
-  name: "Home",
+  name: "HomePage",
   components: {
     NavigationBar,
     FooterBar,
