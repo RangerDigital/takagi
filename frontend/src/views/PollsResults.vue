@@ -5,10 +5,11 @@
     <PollQuestion v-bind:pollData="pollData"></PollQuestion>
 
     <div class="options-list">
+      <p class="form-label">And, that's what people think!</p>
       <div v-for="(item, index) in sortedPolls" :key="index">
-        <div class="options-item" :style="{ background: getGradientString(getPercentage(item.votes)) }">
+        <ProgressBar v-bind:percentage="getPercentage(item.votes)">
           <p> {{ item.name }} </p>
-        </div>
+        </ProgressBar>
 
         <div class="options-list-info">
           <p class="form-label">{{ item.votes }} Votes</p>
@@ -26,13 +27,15 @@
 import TextButton from "../components/TextButton.vue";
 import PollQuestion from "../components/PollQuestion.vue";
 import NavigationBar from "../components/NavigationBar.vue";
+import ProgressBar from "../components/ProgressBar.vue";
 
 export default {
-  name: "PollsVote",
+  name: "PollsResults",
   components: {
     TextButton,
     PollQuestion,
     NavigationBar,
+    ProgressBar,
   },
   data() {
     return {
@@ -123,8 +126,7 @@ export default {
   border: 1.5px solid #121213;
   margin: 0 auto;
 
-  background-color: #FFFFFF;
-
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF);
 
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -142,14 +144,5 @@ export default {
 .option-item-selected {
   background-color: #121213;
   color: #FFFFFF;
-}
-
-.form-icon {
-  display: inline;
-
-  height: 2.5rem;
-  vertical-align: text-bottom;
-
-  margin-right: 0.5rem;
 }
 </style>
