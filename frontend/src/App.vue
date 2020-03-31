@@ -95,15 +95,15 @@ p {
   opacity: 0
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1500px) {
   html {
-    font-size: 8px;
+    font-size: 13px;
   }
 }
 
-@media only screen and (max-height: 550px) {
-  .full-page {
-    height: 180vh;
+@media only screen and (max-height: 500px) {
+  .g-full-page {
+    height: 200vh;
   }
 }
 </style>
