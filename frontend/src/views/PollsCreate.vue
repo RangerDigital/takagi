@@ -28,7 +28,7 @@
         <p v-else class="form-label"><img class="form-icon" src="../assets/icon-msg.svg">Add more options for your voters.</p>
 
         <div v-for="(item, index) in form.options" :key="index">
-          <div class="options-item" @click="deleteOption(index)">
+          <div class="options-item g-clickable" @click="deleteOption(index)">
             <p> {{ item }} </p>
             <img class="form-icon" src="../assets/icon-x-red.svg">
           </div>

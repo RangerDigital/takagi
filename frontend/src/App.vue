@@ -80,6 +80,10 @@ p {
   justify-content: space-around;
 }
 
+.g-clickable {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 600px) {
   html {
     font-size: 8px;

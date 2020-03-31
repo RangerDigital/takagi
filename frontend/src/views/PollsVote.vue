@@ -7,7 +7,7 @@
     <div class="options-list">
       <p class="form-label">So, What is Your answer?</p>
       <div v-for="(item, index) in pollData.options" :key="index">
-        <p @click="selectOption(index)" class="options-item" v-bind:class="{ 'option-item-selected': form.option_id == index }"> {{ item.name }} </p>
+        <p @click="selectOption(index)" class="options-item g-clickable" v-bind:class="{ 'option-item-selected': form.option_id == index }"> {{ item.name }} </p>
       </div>
 
       <p class="text-center text-link">

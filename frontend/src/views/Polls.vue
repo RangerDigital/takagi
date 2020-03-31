@@ -2,11 +2,16 @@
 <section class="g-full-page">
   <NavigationBar title="My Polls" />
   <div class="g-component-flex">
-    <p class="form-label">Polls created by You,</p>
+    <p class="form-label width-30">Polls created by You,</p>
+
+    <div v-if="!pollData.length">
+      <p class="form-label width-30"><img class="form-icon" src="../assets/icon-msg.svg">Nothing here..., Create some polls!</p>
+      <p class="form-label width-30 text-center">. . .</p>
+    </div>
 
     <div v-for="(item, index) in pollData" :key="index">
       <div @click="$router.push('/polls/' + item._id + '/results')">
-        <PollQuestion slim class="poll-item" v-bind:pollData="item"></PollQuestion>
+        <PollQuestion slim class="poll-item g-clickable" v-bind:pollData="item"></PollQuestion>
         <p class="text-center">. . .</p>
       </div>
     </div>
@@ -56,15 +61,13 @@ export default {
 </script>
 
 <style scoped>
-.g-full-page {
-  overflow-x: hidden;
+.width-30 {
+  width: 30rem;
 }
 
 .form-label {
   color: #626468;
   text-align: left;
-
-  width: 30rem;
 }
 
 .vertical-divider {
@@ -80,15 +83,22 @@ export default {
 }
 
 .poll-item {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 
-  padding: 0.5rem;
-  border-radius: 5px;
+  transition: all 1s;
 }
 
 .poll-item:hover {
-  background-color: #EBEBEB;
+  transform: rotateZ(2.5deg);
+}
 
+.form-icon {
+  display: inline;
+
+  height: 2.5rem;
+  vertical-align: text-bottom;
+
+  margin-right: 0.5rem;
 }
 </style>

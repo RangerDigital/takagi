@@ -1,5 +1,5 @@
 <template>
-<button class="button" @click="$emit('clickEvent');">
+<button class="button g-clickable" @click="$emit('clickEvent');">
   <p>
     <slot>CLICK ME</slot>
   </p>
