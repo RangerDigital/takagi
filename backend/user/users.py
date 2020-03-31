@@ -2,7 +2,7 @@ from flask import Blueprint
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from bson.objectid import ObjectId
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, validate
 
 from extensions import db
 from helpers import validate_schema, return_error, return_json
@@ -11,7 +11,7 @@ users = Blueprint("users", __name__)
 
 
 class User(Schema):
-    name = fields.String()
+    name = fields.String(validate=validate.Length(min=1, max=15))
     email = fields.String()
 
 

@@ -4,7 +4,7 @@ from flask import Blueprint
 from flask_jwt_extended import get_jwt_identity, jwt_optional, jwt_required
 
 from bson.objectid import ObjectId
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, validate
 
 from extensions import db, rd, limiter
 from helpers import validate_schema, return_error, return_json
@@ -13,13 +13,13 @@ polls = Blueprint("polls", __name__)
 
 
 class Poll(Schema):
-    question = fields.String(required=True)
-    options = fields.List(fields.String(), required=True)
+    question = fields.String(required=True, validate=validate.Length(min=1, max=100))
+    options = fields.List(fields.String(validate=validate.Length(min=1, max=50)), required=True, validate=validate.Length(min=2, max=15))
 
 
 class Vote(Schema):
-    option_id = fields.Int(required=True)
-    fingerprint = fields.String(required=True)
+    option_id = fields.Int(required=True, validate=validate.Range(min=0, max=14))
+    fingerprint = fields.String(required=True, validate=validate.Length(equal=32))
 
 
 # Create new poll.
@@ -111,7 +111,11 @@ def vote_poll(payload, poll_id):
         return return_error("You already voted in that poll!")
 
     poll["voters"].append(payload["fingerprint"])
-    poll["options"][payload["option_id"]]["votes"] += 1
+    
+    try:
+        poll["options"][payload["option_id"]]["votes"] += 1
+    except IndexError:
+        return return_error("Option Id out of polls bounds!")
 
     db.polls.replace_one({"_id": ObjectId(poll_id)}, poll)
 

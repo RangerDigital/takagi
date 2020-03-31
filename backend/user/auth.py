@@ -5,7 +5,7 @@ from flask import Blueprint
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 
 from bson.objectid import ObjectId
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, validate
 
 from extensions import db, rd, limiter
 from helpers import validate_schema, return_error, return_json
@@ -14,19 +14,19 @@ auth = Blueprint("auth", __name__)
 
 
 class UpdatePassword(Schema):
-    password = fields.String(required=True)
+    password = fields.String(required=True, validate=validate.Length(min=8))
 
 
 class Auth(Schema):
     email = fields.String(required=True)
-    password = fields.String(required=True)
+    password = fields.String(required=True, validate=validate.Length(min=8))
 
 
 class Register(Schema):
-    name = fields.String(required=True)
+    name = fields.String(required=True, validate=validate.Length(min=1, max=15))
 
     email = fields.String(required=True)
-    password = fields.String(required=True)
+    password = fields.String(required=True, validate=validate.Length(min=8))
 
 
 def generate_hash(password):
