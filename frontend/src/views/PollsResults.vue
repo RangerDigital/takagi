@@ -22,7 +22,7 @@
       <TextButton @clickEvent="deletePoll" class="button-delete"><img class="form-icon" src="../assets/icon-x-white.svg"></TextButton>
       <TextButton @clickEvent="sharePoll" class="button-small">{{ buttonMsg }}</TextButton>
     </div>
-    <TextButton v-else>{{ buttonMsg }}</TextButton>
+    <TextButton @clickEvent="sharePoll" v-else>{{ buttonMsg }}</TextButton>
 
   </div>
 </section>
@@ -103,9 +103,9 @@ export default {
     sharePoll() {
       if (navigator.share) {
         navigator.share({
-          title: 'Takagi',
+          title: 'Just Takagi',
           url: 'https://takagi.bednarski.dev/polls/' + this.pollId,
-          text: 'Hi! Take this poll for me, please?'
+          text: 'Hello! Take this poll for me, please?'
         });
 
       } else {
