@@ -39,7 +39,7 @@
       </div>
 
       <div>
-        <IconButton @clickEvent="$router.push('/register')">
+        <IconButton @clickEvent="$router.push('/profile')">
           <p>MY PROFILE</p><img src="../assets/icon-arrow-bar.svg" />
         </IconButton>
 
