@@ -2,7 +2,7 @@
 <section>
   <nav class="nav-mobile flex">
     <div class="nav-logo">
-      <h1>{{title}}</h1>
+      <h1 class="g-clickable" @click="$router.push('/')">{{title}}</h1>
       <div class="nav-divider"></div>
     </div>
 
@@ -16,7 +16,7 @@
 
   <nav class="nav-desktop flex">
     <div class="nav-logo">
-      <h1>{{title}}</h1>
+      <h1 class="g-clickable" @click="$router.push('/')">{{title}}</h1>
       <div class="nav-divider"></div>
     </div>
 
