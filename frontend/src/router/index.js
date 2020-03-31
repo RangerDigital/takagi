@@ -44,6 +44,11 @@ const routes = [
     name: 'PollsVote',
     component: () => import('../views/PollsVote.vue')
   },
+  {
+    path: '*',
+    name: 'Error404',
+    component: () => import('../views/Error404.vue')
+  },
 ]
 
 const router = new VueRouter({
