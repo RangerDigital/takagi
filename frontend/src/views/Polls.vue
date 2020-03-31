@@ -5,7 +5,7 @@
     <p class="form-label width-30">Polls created by You,</p>
 
     <div v-if="!pollData.length">
-      <p class="form-label width-30"><img class="form-icon" src="../assets/icon-msg.svg">Nothing here..., Create some polls!</p>
+      <p class="form-label width-30"><img class="form-icon" src="../assets/icon-msg.svg">Nothing here... Create some polls!</p>
       <p class="form-label width-30 text-center">. . .</p>
     </div>
 

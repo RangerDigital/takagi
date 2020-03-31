@@ -20,7 +20,7 @@
 
     <div v-if="isOwnedByUser" class="button-list">
       <TextButton @clickEvent="deletePoll" class="button-delete"><img class="form-icon" src="../assets/icon-x-white.svg"></TextButton>
-      <TextButton class="button-small">{{ buttonMsg }}</TextButton>
+      <TextButton @clickEvent="sharePoll" class="button-small">{{ buttonMsg }}</TextButton>
     </div>
     <TextButton v-else>{{ buttonMsg }}</TextButton>
 
