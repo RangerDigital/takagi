@@ -1,6 +1,7 @@
 <template>
 <section class="g-full-page hero-bg">
   <NavigationBar title="Takagi" />
+
   <div class="component-flex">
     <div>
       <h1 class="hero-text">TAKAGI</h1>
@@ -64,9 +65,9 @@ export default {
   },
   mounted() {
     // Check if user is logged.
-    if (localStorage.getItem('jwt_token')) {
-      this.isUserLogged = true;
-    }
+    // if (localStorage.getItem('jwt_token')) {
+    //   this.isUserLogged = true;
+    // }
   },
 };
 </script>
