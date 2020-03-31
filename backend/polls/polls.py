@@ -88,7 +88,7 @@ def delete_poll(poll_id):
     if not ObjectId.is_valid(poll_id):
         return return_error("Invalid ID format!")
 
-    db.polls.delete_one({"_id": ObjectId(poll_id), "_user_id": user_id})
+    db.polls.delete_one({"_id": ObjectId(poll_id), "_user_id": str(user_id)})
 
     return return_json(""), 204
 
