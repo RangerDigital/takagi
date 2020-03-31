@@ -13,10 +13,10 @@
       </div>
     </div>
 
-    <div>
+    <!-- <div>
       <p>No sign up required!</p>
       <TextButton class="anim-button" @clickEvent="$router.push('/create')">CREATE POLL</TextButton>
-    </div>
+    </div> -->
 
     <!-- <div v-if="!isUserLogged">
       <p>Or, To save your polls</p>
@@ -82,7 +82,7 @@ export default {
   align-items: center;
   justify-content: space-around;
 
-  animation: opacity-in 1s ease-out;
+  /* animation: opacity-in 1s ease-out; */
 }
 
 .hero-text {
@@ -90,7 +90,7 @@ export default {
   font-size: 4.5rem;
   font-weight: 600;
 
-  animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530);
+  /* animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530); */
 }
 
 .heading-text h1 {
@@ -128,7 +128,7 @@ export default {
   background-repeat: no-repeat;
 }
 
-.anim-button {
+/* .anim-button {
   animation: pulsate-bck 2s ease-in-out infinite both;
 }
 
@@ -176,5 +176,5 @@ export default {
   .heading-text h1 {
     font-size: 3.5rem;
   }
-}
+} */
 </style>
