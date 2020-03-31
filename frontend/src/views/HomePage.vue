@@ -13,10 +13,10 @@
       </div>
     </div>
 
-    <div>
+    <!-- <div>
       <p>No sign up required!</p>
       <TextButton class="anim-button" @clickEvent="$router.push('/create')">CREATE POLL</TextButton>
-    </div>
+    </div> -->
 
     <div v-if="!isUserLogged">
       <p>Or, To save your polls</p>
@@ -38,7 +38,7 @@
 
 <script>
 import FooterBar from "../components/FooterBar.vue";
-import TextButton from "../components/TextButton.vue";
+// import TextButton from "../components/TextButton.vue";
 import NavigationBar from "../components/NavigationBar.vue";
 import OutlineButton from "../components/OutlineButton.vue";
 
@@ -48,7 +48,7 @@ export default {
   components: {
     NavigationBar,
     FooterBar,
-    TextButton,
+    // TextButton,
     OutlineButton,
   },
   data() {
