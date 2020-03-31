@@ -25,7 +25,7 @@
 
         <ValidationProvider class="form-input" rules="required|min:8" v-slot="v">
           <p class="form-label"><img class="form-icon" src="../assets/icon-mail.svg">Password</p>
-          <SingleInput v-model.lazy="form.password" type="password" placeholder="e.g. Pretty obvious, right?" />
+          <SingleInput v-model.lazy="form.password" type="password" @onEnter="createUser" placeholder="e.g. Pretty obvious, right?" />
           <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
           <p class="text-center" v-else>. . .</p>
         </ValidationProvider>

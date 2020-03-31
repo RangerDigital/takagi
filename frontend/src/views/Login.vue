@@ -16,7 +16,7 @@
         <div class="form-input">
           <p class="form-label"><img class="form-icon" src="../assets/icon-lock.svg">Password</p>
           <ValidationProvider rules="required|min:8" v-slot="v">
-            <SingleInput v-model="form.password" type="password" placeholder="e.g. Pretty obvious, right?" />
+            <SingleInput v-model="form.password" type="password" @onEnter="loginUser" placeholder="e.g. Pretty obvious, right?" />
             <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
             <p class="text-center" v-else>. . .</p>
           </ValidationProvider>
