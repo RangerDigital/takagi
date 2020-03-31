@@ -103,14 +103,14 @@ export default {
     sharePoll() {
       if (navigator.share) {
         navigator.share({
-          title: 'Takagi - Polls',
-          url: this.$route.fullPath,
+          title: 'Takagi',
+          url: 'https://takagi.bednarski.dev/polls/' + this.pollId,
           text: 'Hi! Take this poll for me, please?'
         });
 
       } else {
-        navigator.clipboard.writeText(this.$route.fullPath)
-        this.buttonMsg = 'COPIED LINK'
+        navigator.clipboard.writeText('https://takagi.bednarski.dev/polls/' + this.pollId)
+        this.buttonMsg = 'LINK COPIED'
       }
     }
   },
