@@ -70,7 +70,7 @@ export default {
 
           setTimeout(() => {
             this.$router.replace('/polls/' + this.pollId + '/results');
-          }, 3000)
+          }, 1000)
         })
         .catch(error => {
           this.isSuccess = false;

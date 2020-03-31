@@ -117,7 +117,7 @@ export default {
 
           setTimeout(() => {
             this.$router.push('/login')
-          }, 3000)
+          }, 1000)
         })
         .catch(error => {
           this.isSuccess = false;

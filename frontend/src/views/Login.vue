@@ -109,7 +109,7 @@ export default {
 
           setTimeout(() => {
             this.$router.push('/');
-          }, 3000)
+          }, 1000)
         })
         .catch(error => {
           this.isSuccess = false;
