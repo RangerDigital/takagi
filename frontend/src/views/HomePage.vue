@@ -81,8 +81,6 @@ export default {
 
   align-items: center;
   justify-content: space-around;
-
-  /* animation: opacity-in 1s ease-out; */
 }
 
 .hero-text {
@@ -90,7 +88,7 @@ export default {
   font-size: 4.5rem;
   font-weight: 600;
 
-  /* animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530); */
+  animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530);
 }
 
 .heading-text h1 {
@@ -128,24 +126,6 @@ export default {
   background-repeat: no-repeat;
 }
 
-/* .anim-button {
-  animation: pulsate-bck 2s ease-in-out infinite both;
-}
-
-@keyframes pulsate-bck {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(0.97);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
 @keyframes text-focus-in {
   0% {
     filter: blur(12px);
@@ -157,17 +137,6 @@ export default {
     opacity: 1;
   }
 }
-
-@keyframes opacity-in {
-  0% {
-    opacity: 0%;
-  }
-
-  100% {
-    opacity: 100%;
-  }
-}
-*/
 
 @media only screen and (min-width: 600px) {
   .hero-text {
