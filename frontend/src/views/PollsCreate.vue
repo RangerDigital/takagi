@@ -120,7 +120,7 @@ export default {
       }
 
       this.$http
-        .post('/polls', this.form)
+        .post('/api/polls', this.form)
         .then(response => {
           this.isSuccess = true;
 

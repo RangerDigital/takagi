@@ -15,7 +15,7 @@ export default {
       this.$http.defaults.headers.common['Authorization'] = 'Bearer ' + jwt_token;
 
       this.$http
-        .get('/users/me')
+        .get('/api/users/me')
         .catch(error => {
           console.log(error)
 

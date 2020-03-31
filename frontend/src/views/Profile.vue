@@ -114,7 +114,7 @@ export default {
   methods: {
     updateUser() {
       this.$http
-        .patch('/users/me', this.form)
+        .patch('/api/users/me', this.form)
         .then(() => {
           this.isSuccess = true;
         })
@@ -125,7 +125,7 @@ export default {
 
       if (this.password) {
         this.$http
-          .post('/users/me/password', {
+          .post('/api/users/me/password', {
             'password': this.password
           })
           .then(() => {
@@ -140,7 +140,7 @@ export default {
   },
   created() {
     this.$http
-      .get('/users/me')
+      .get('/api/users/me')
       .then(response => {
         this.form.name = response.data.name;
         this.form.email = response.data.email;

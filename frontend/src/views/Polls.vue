@@ -44,7 +44,7 @@ export default {
   methods: {
     getPollData() {
       this.$http
-        .get('/polls')
+        .get('/api/polls')
         .then(response => {
           this.pollData = response.data;
         })

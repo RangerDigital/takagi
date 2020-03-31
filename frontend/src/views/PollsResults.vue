@@ -62,7 +62,7 @@ export default {
   methods: {
     getPollData() {
       this.$http
-        .get('/polls/' + this.pollId)
+        .get('/api/polls/' + this.pollId)
         .then(response => {
           this.pollData = response.data;
         })
@@ -86,7 +86,7 @@ export default {
 
     deletePoll() {
       this.$http
-        .delete('/polls/' + this.pollId)
+        .delete('/api/polls/' + this.pollId)
         .then(() => {
           this.$router.push('/polls');
         })
@@ -140,7 +140,7 @@ export default {
     this.getPollData();
 
     this.$http
-      .get('/users/me')
+      .get('/api/users/me')
       .then(response => {
         this.userId = response.data._id;
       });

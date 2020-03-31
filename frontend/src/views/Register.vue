@@ -111,7 +111,7 @@ export default {
       }
 
       this.$http
-        .post('/users/register', this.form)
+        .post('/api/users/register', this.form)
         .then(() => {
           this.isSuccess = true;
 

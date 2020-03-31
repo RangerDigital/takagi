@@ -63,7 +63,7 @@ export default {
       }
 
       this.$http
-        .post('/polls/' + this.pollId + '/vote', this.form)
+        .post('/api/polls/' + this.pollId + '/vote', this.form)
         .then(response => {
           console.log(response);
           this.isSuccess = true;
@@ -94,7 +94,7 @@ export default {
     this.pollId = this.$route.params.pollId;
 
     this.$http
-      .get('/polls/' + this.pollId)
+      .get('/api/polls/' + this.pollId)
       .then(response => {
         console.log(response);
         this.pollData = response.data;
