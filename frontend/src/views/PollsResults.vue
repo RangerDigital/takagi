@@ -6,7 +6,6 @@
 
     <div class="options-list">
       <div v-for="(item, index) in sortedPolls" :key="index">
-
         <div class="options-item" :style="{ background: getGradientString(getPercentage(item.votes)) }">
           <p> {{ item.name }} </p>
         </div>
@@ -24,22 +23,23 @@
 </template>
 
 <script>
-import NavigationBar from "../components/NavigationBar.vue";
 import TextButton from "../components/TextButton.vue";
 import PollQuestion from "../components/PollQuestion.vue";
+import NavigationBar from "../components/NavigationBar.vue";
 
 export default {
-  name: "Vote",
+  name: "PollsVote",
   components: {
-    NavigationBar,
     TextButton,
     PollQuestion,
+    NavigationBar,
   },
   data() {
     return {
       pollData: {
         voters: [],
       },
+
       pollId: '',
       updateInterval: null,
 
@@ -52,10 +52,7 @@ export default {
       this.$http
         .get('/polls/' + this.pollId)
         .then(response => {
-          console.log(response);
           this.pollData = response.data;
-
-          console.log(response.data)
         })
         .catch(error => {
           this.isSuccess = false;
@@ -64,8 +61,13 @@ export default {
     },
 
     getPercentage(count) {
+      if (!count) {
+        return 0
+      }
+
       return (count / this.pollData.voters.length * 100).toFixed(0);
     },
+
     getGradientString(percentage) {
       return 'linear-gradient(to right, #FFAEAE, #FFAEAE ' + percentage + '%, #FFFFFF ' + percentage + '%, #FFFFFF)';
     }
@@ -104,10 +106,6 @@ export default {
 </script>
 
 <style scoped>
-:root {
-  --bkgImage: 50%;
-}
-
 .form-label {
   color: #626468;
   text-align: left;

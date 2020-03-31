@@ -9,6 +9,10 @@
       <div v-for="(item, index) in pollData.options" :key="index">
         <p @click="selectOption(index)" class="options-item" v-bind:class="{ 'option-item-selected': form.option_id == index }"> {{ item.name }} </p>
       </div>
+
+      <p class="text-center text-link">
+        Results? <router-link v-bind:to="'/polls/' + this.pollId + '/results'">See Them Here</router-link>
+      </p>
     </div>
 
     <div>
@@ -21,18 +25,18 @@
 </template>
 
 <script>
-import NavigationBar from "../components/NavigationBar.vue";
 import TextButton from "../components/TextButton.vue";
 import PollQuestion from "../components/PollQuestion.vue";
+import NavigationBar from "../components/NavigationBar.vue";
 
 import * as Fingerprint2 from 'fingerprintjs2'
 
 export default {
-  name: "Vote",
+  name: "PollsVote",
   components: {
-    NavigationBar,
     TextButton,
     PollQuestion,
+    NavigationBar,
   },
   data() {
     return {
@@ -73,6 +77,7 @@ export default {
           this.serverErrorMsg = error.response.data.msg;
         });
     },
+
     getFingerprint() {
       var options = {}
 
@@ -135,6 +140,11 @@ export default {
   padding: 0.6em;
 }
 
+.option-item-selected {
+  background-color: #121213;
+  color: #FFFFFF;
+}
+
 .options-item:hover {
   background-color: #121213;
   color: #FFFFFF;
@@ -144,14 +154,14 @@ export default {
   color: #FF7171;
 }
 
+.text-center {
+  color: #626468;
+  text-align: center;
+}
+
 .text-link a {
   text-decoration: none;
   color: #121213;
-}
-
-.option-item-selected {
-  background-color: #121213;
-  color: #FFFFFF;
 }
 
 .form-icon {

@@ -25,8 +25,7 @@
 
       <div class="options-list">
         <p v-if="form.options[0]" class="form-label"><img class="form-icon" src="../assets/icon-clip.svg">Available Options {{ form.options.length }}/15)</p>
-        <p v-else class="form-label"><img class="form-icon" src="../assets/icon-note.svg">Add more options for your voters.</p>
-
+        <p v-else class="form-label"><img class="form-icon" src="../assets/icon-msg.svg">Add more options for your voters.</p>
 
         <div v-for="(item, index) in form.options" :key="index">
           <div class="options-item" @click="deleteOption(index)">
@@ -34,7 +33,6 @@
             <img class="form-icon" src="../assets/icon-x-red.svg">
           </div>
         </div>
-
       </div>
 
       <div>
@@ -48,20 +46,21 @@
 </template>
 
 <script>
-import NavigationBar from "../components/NavigationBar.vue";
 import TextButton from "../components/TextButton.vue";
 import SingleInput from "../components/SingleInput.vue";
+import NavigationBar from "../components/NavigationBar.vue";
 
+// Setup Vee-Validate
 import {
   ValidationProvider,
   ValidationObserver,
-  extend
+  extend,
 } from 'vee-validate';
 
 import {
   required,
   min,
-  max
+  max,
 } from 'vee-validate/dist/rules';
 
 extend('required', {
@@ -80,11 +79,11 @@ extend('max', {
 });
 
 export default {
-  name: "Create",
+  name: "PollsCreate",
   components: {
-    NavigationBar,
     TextButton,
     SingleInput,
+    NavigationBar,
     ValidationProvider,
     ValidationObserver,
   },
@@ -110,9 +109,11 @@ export default {
       this.form.options.push(this.newOption);
       this.newOption = '';
     },
+
     deleteOption(index) {
       this.form.options.splice(index, 1);
     },
+
     createPoll() {
       if (this.isSuccess) {
         return;
@@ -121,13 +122,11 @@ export default {
       this.$http
         .post('/polls', this.form)
         .then(response => {
-          console.log(response);
-
           this.isSuccess = true;
 
           setTimeout(() => {
             this.$router.replace('/polls/' + response.data._id);
-          }, 3000)
+          }, 2000)
         })
         .catch(error => {
           this.isSuccess = false;
@@ -139,63 +138,6 @@ export default {
 </script>
 
 <style scoped>
-.form-input {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.options-list {
-  min-height: 60%;
-}
-
-.form-label {
-  color: #626468;
-  text-align: left;
-}
-
-.vertical-divider {
-  height: 2px;
-  width: 100%;
-  border-radius: 100px;
-  background-color: #121213;
-}
-
-.options-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 30rem;
-  border-radius: 5px;
-
-  border: 1.5px solid #F0F0F0;
-  margin: 0 auto;
-
-  background-color: #FFFFFF;
-
-
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-
-  font-size: 1.6rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-
-  color: #626468;
-  padding: 0.6em;
-}
-
-.options-item p {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 85%;
-}
-
-.options-item:hover {
-  border: 1.5px solid #FF7171;
-}
-
 .form-input-area {
   width: 30rem;
 
@@ -222,6 +164,55 @@ export default {
   padding: 0.6em;
 }
 
+.form-input {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  color: #626468;
+  text-align: left;
+}
+
+.options-list {
+  min-height: 60%;
+}
+
+.options-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 30rem;
+  border-radius: 5px;
+
+  border: 1.5px solid #F0F0F0;
+  margin: 0 auto;
+
+  background-color: #FFFFFF;
+
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+
+  color: #626468;
+  padding: 0.6em;
+}
+
+.options-item p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 85%;
+}
+
+.options-item:hover {
+  border: 1.5px solid #FF7171;
+}
+
 .text-center {
   color: #626468;
   text-align: center;
@@ -229,11 +220,6 @@ export default {
 
 .text-error {
   color: #FF7171;
-}
-
-.text-link a {
-  text-decoration: none;
-  color: #121213;
 }
 
 .form-icon {

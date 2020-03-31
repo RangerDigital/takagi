@@ -26,8 +26,8 @@ const routes = [
   },
   {
     path: '/create',
-    name: 'Create',
-    component: () => import('../views/Create.vue')
+    name: 'PollsCreate',
+    component: () => import('../views/PollsCreate.vue')
   },
   {
     path: '/polls/:pollId/results',
