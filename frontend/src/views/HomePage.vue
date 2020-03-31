@@ -18,7 +18,7 @@
       <TextButton class="anim-button" @clickEvent="$router.push('/create')">CREATE POLL</TextButton>
     </div>
 
-    <!-- <div v-if="!isUserLogged">
+    <div v-if="!isUserLogged">
       <p>Or, To save your polls</p>
       <OutlineButton @clickEvent="$router.push('/register')">SIGN UP</OutlineButton>
       <p class="text-label">Existing user? <a @click="$router.push('/login')" class="text-link g-clickable">Sign In</a></p>
@@ -28,7 +28,7 @@
       <p>Welcome back! You are logged in,</p>
       <OutlineButton @clickEvent="logoutUser">LOGOUT</OutlineButton>
       <p class="text-label">If you want to logout!</p>
-    </div> -->
+    </div>
 
   </div>
 
@@ -40,7 +40,7 @@
 import FooterBar from "../components/FooterBar.vue";
 import TextButton from "../components/TextButton.vue";
 import NavigationBar from "../components/NavigationBar.vue";
-// import OutlineButton from "../components/OutlineButton.vue";
+import OutlineButton from "../components/OutlineButton.vue";
 
 
 export default {
@@ -49,7 +49,7 @@ export default {
     NavigationBar,
     FooterBar,
     TextButton,
-    // OutlineButton,
+    OutlineButton,
   },
   data() {
     return {
@@ -167,6 +167,7 @@ export default {
     opacity: 100%;
   }
 }
+*/
 
 @media only screen and (min-width: 600px) {
   .hero-text {
@@ -176,5 +177,5 @@ export default {
   .heading-text h1 {
     font-size: 3.5rem;
   }
-} */
+}
 </style>
