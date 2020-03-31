@@ -65,9 +65,9 @@ export default {
   },
   mounted() {
     // Check if user is logged.
-    // if (localStorage.getItem('jwt_token')) {
-    //   this.isUserLogged = true;
-    // }
+    if (localStorage.getItem('jwt_token')) {
+      this.isUserLogged = true;
+    }
   },
 };
 </script>
