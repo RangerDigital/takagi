@@ -13,14 +13,14 @@
     </div>
 
     <div>
-      <p>No registration, Get started!</p>
-      <TextButton @clickEvent="$router.push('/create')">CREATE POLL</TextButton>
+      <p>No sign up required!</p>
+      <TextButton class="anim-button" @clickEvent="$router.push('/create')">CREATE POLL</TextButton>
     </div>
 
     <div v-if="!isUserLogged">
       <p>Or, To save your polls</p>
       <OutlineButton @clickEvent="$router.push('/register')">SIGN UP</OutlineButton>
-      <p class="text-label">Existing user? <a @click="$router.push('/login')" class="text-link">Sign In</a></p>
+      <p class="text-label">Existing user? <a @click="$router.push('/login')" class="text-link g-clickable">Sign In</a></p>
     </div>
 
     <div v-else>
@@ -80,13 +80,16 @@ export default {
 
   align-items: center;
   justify-content: space-around;
+
+  animation: opacity-in 1s ease-out;
 }
 
 .hero-text {
   text-align: center;
-
   font-size: 4.5rem;
   font-weight: 600;
+
+  animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530);
 }
 
 .heading-text h1 {
@@ -100,6 +103,12 @@ export default {
 
 .text-link {
   color: #121213;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.text-link:hover {
+  color: #FF7171;
 }
 
 .text-red {
@@ -116,6 +125,46 @@ export default {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.anim-button {
+  animation: pulsate-bck 2s ease-in-out infinite both;
+}
+
+@keyframes pulsate-bck {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.97);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-in {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }
 
 @media only screen and (min-width: 600px) {

@@ -22,8 +22,8 @@
           </ValidationProvider>
         </div>
 
-        <p class="text-center text-link">
-          New user? <router-link to="/register">Sign Up</router-link>
+        <p class="text-center">
+          New user? <a @click="$router.push('/register')" class="text-link g-clickable">Sign Up</a>
         </p>
 
       </form>
@@ -140,9 +140,14 @@ export default {
   color: #FF7171;
 }
 
-.text-link a {
-  text-decoration: none;
+.text-link {
   color: #121213;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.text-link:hover {
+  color: #FF7171;
 }
 
 .form-icon {

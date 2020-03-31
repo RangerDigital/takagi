@@ -30,8 +30,8 @@
           <p class="text-center" v-else>. . .</p>
         </ValidationProvider>
 
-        <p class="text-center text-link">
-          Existing user? <router-link to="/login">Sign In</router-link>
+        <p class="text-center">
+          Existing user? <a @click="$router.push('/login')" class="text-link g-clickable">Sign In</a>
         </p>
       </form>
 
@@ -148,9 +148,14 @@ export default {
   color: #FF7171;
 }
 
-.text-link a {
-  text-decoration: none;
+.text-link {
   color: #121213;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.text-link:hover {
+  color: #FF7171;
 }
 
 .form-icon {
