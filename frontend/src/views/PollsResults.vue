@@ -69,6 +69,10 @@ export default {
         .catch(error => {
           this.isSuccess = false;
           this.serverErrorMsg = error.response.data.msg;
+
+          if (error.response.status == 404) {
+            this.$router.push('/404');
+          }
         });
     },
 
@@ -143,6 +147,9 @@ export default {
       .get('/api/users/me')
       .then(response => {
         this.userId = response.data._id;
+      })
+      .catch(error => {
+        console.log(error)
       });
 
     this.updateInterval = setInterval(() => {

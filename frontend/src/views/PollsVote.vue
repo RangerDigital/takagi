@@ -104,6 +104,10 @@ export default {
       .catch(error => {
         this.isSuccess = false;
         this.serverErrorMsg = error.response.data.msg;
+
+        if (error.response.status == 404) {
+          this.$router.push('/404');
+        }
       });
 
     this.getFingerprint();
