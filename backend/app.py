@@ -1,6 +1,9 @@
 from flask import Flask
 from extensions import jwt, limiter, config
 
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+
 from user.users import users
 from user.auth import auth
 
@@ -17,6 +20,11 @@ def create_app():
         App: Flask app object.
 
     """
+    sentry_sdk.init(
+        dsn="https://64b1d0177b2e4ea2845d71b77addafb2@sentry.io/5184010",
+        integrations=[FlaskIntegration()]
+    )
+
     app = Flask(__name__)
     jwt.init_app(app)
     limiter.init_app(app)
