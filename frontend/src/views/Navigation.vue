@@ -2,7 +2,7 @@
 <section class="g-full-page">
   <NavigationBar title="Navigation" mode="back" />
 
-  <div class="g-component-flex">
+  <div class="component-flex">
     <div>
       <IconButton @clickEvent="$router.push('/create')">
         <p>CREATE POLL</p><img src="../assets/icon-arrow-bar.svg" />
@@ -82,9 +82,14 @@ export default {
 
 
 <style scoped>
-.g-component-flex {
+.component-flex {
   min-height: 85%;
 
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-around;
 }
 
 .text-label {
