@@ -1,6 +1,6 @@
 <template>
 <section class="question-container">
-  <p class="form-label">Created by {{ pollData.name }}</p>
+  <p v-if="!slim" class="form-label">Created by {{ pollData.name }}</p>
   <h1 class="text-hero"> {{pollData.question }} </h1>
   <div class="info-flex">
     <p class="form-label"><img class="form-icon" src="../assets/icon-msg.svg">{{ allVoters }} Votes</p>
@@ -15,6 +15,9 @@ export default {
   props: {
     'pollData': {
       type: Object,
+    },
+    'slim': {
+      type: Boolean,
     },
   },
   computed: {
@@ -67,8 +70,10 @@ export default {
 }
 
 .text-hero {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+
+  font-size: 2.2rem;
 }
 
 .text-link a {
