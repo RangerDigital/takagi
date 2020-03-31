@@ -16,10 +16,6 @@ export default {
 
       this.$http
         .get('/users/me')
-        .then(response => {
-          console.log(response);
-
-        })
         .catch(error => {
           console.log(error)
 

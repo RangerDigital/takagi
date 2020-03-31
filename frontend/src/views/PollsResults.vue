@@ -18,7 +18,12 @@
       </div>
     </div>
 
-    <TextButton disabled>SHARE</TextButton>
+    <div v-if="isOwnedByUser" class="button-list">
+      <TextButton @clickEvent="deletePoll" class="button-delete"><img class="form-icon" src="../assets/icon-x-white.svg"></TextButton>
+      <TextButton class="button-small">{{ buttonMsg }}</TextButton>
+    </div>
+    <TextButton v-else>{{ buttonMsg }}</TextButton>
+
   </div>
 </section>
 </template>
@@ -44,7 +49,11 @@ export default {
       },
 
       pollId: '',
+      userId: '',
+
       updateInterval: null,
+
+      buttonMsg: 'SHARE',
 
       isSuccess: false,
       serverErrorMsg: '',
@@ -73,6 +82,32 @@ export default {
 
     getGradientString(percentage) {
       return 'linear-gradient(to right, #FFAEAE, #FFAEAE ' + percentage + '%, #FFFFFF ' + percentage + '%, #FFFFFF)';
+    },
+
+    deletePoll() {
+      this.$http
+        .delete('/polls/' + this.pollId)
+        .then(() => {
+          this.$router.push('/polls');
+        })
+        .catch(error => {
+          this.isSuccess = false;
+          this.serverErrorMsg = error.response.data.msg;
+        });
+    },
+
+    sharePoll() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Takagi - Polls',
+          url: this.$route.fullPath,
+          text: 'Hi! Take this poll for me, please?'
+        });
+
+      } else {
+        navigator.clipboard.writeText(this.$route.fullPath)
+        this.buttonMsg = 'COPIED LINK'
+      }
     }
   },
   computed: {
@@ -92,11 +127,23 @@ export default {
         return [];
       }
       return unsorted.sort(compare);
+    },
+    isOwnedByUser() {
+      if (this.pollData._user_id == this.userId) {
+        return true;
+      }
+      return false;
     }
   },
   created() {
     this.pollId = this.$route.params.pollId;
     this.getPollData();
+
+    this.$http
+      .get('/users/me')
+      .then(response => {
+        this.userId = response.data._id;
+      });
 
     this.updateInterval = setInterval(() => {
       this.getPollData();
@@ -144,5 +191,29 @@ export default {
 .option-item-selected {
   background-color: #121213;
   color: #FFFFFF;
+}
+
+.button-list {
+  width: 30rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-delete {
+  background-color: #FF7171;
+  width: 5rem;
+}
+
+.button-small {
+  width: 20rem;
+}
+
+.form-icon {
+  display: inline;
+
+  height: 2.5rem;
+  vertical-align: text-bottom;
+
+  margin-right: 0.5rem;
 }
 </style>
