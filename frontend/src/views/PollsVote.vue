@@ -7,12 +7,12 @@
     <div class="options-list">
       <p class="form-label">So, What is Your answer?</p>
       <div v-for="(item, index) in pollData.options" :key="index">
-        <p @click="selectOption(index)" class="options-item" v-bind:class="{ 'option-item-selected': selectedOptionsIndex == index }"> {{ item.name }} </p>
+        <p @click="selectOption(index)" class="options-item" v-bind:class="{ 'option-item-selected': form.option_id == index }"> {{ item.name }} </p>
       </div>
     </div>
 
     <div>
-      <TextButton @clickEvent="voteInPoll" :disabled="selectedOptionsIndex == -1">VOTE</TextButton>
+      <TextButton @clickEvent="voteInPoll" :disabled="form.option_id == -1">VOTE</TextButton>
       <p class="text-error"> {{ serverErrorMsg }} </p>
       <p v-show="isSuccess" class="text-center">Success! You Voted!</p>
     </div>
@@ -24,6 +24,8 @@
 import NavigationBar from "../components/NavigationBar.vue";
 import TextButton from "../components/TextButton.vue";
 import PollQuestion from "../components/PollQuestion.vue";
+
+import * as Fingerprint2 from 'fingerprintjs2'
 
 export default {
   name: "Vote",
@@ -39,10 +41,8 @@ export default {
 
       form: {
         fingerprint: '',
-        option_id: null,
+        option_id: -1,
       },
-
-      selectedOptionsIndex: -1,
 
       isSuccess: false,
       serverErrorMsg: '',
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     selectOption(index) {
-      this.selectedOptionsIndex = index;
+      this.form.option_id = index;
     },
 
     voteInPoll() {
@@ -72,6 +72,17 @@ export default {
           this.isSuccess = false;
           this.serverErrorMsg = error.response.data.msg;
         });
+    },
+    getFingerprint() {
+      var options = {}
+
+      Fingerprint2.get(options, (components) => {
+        var values = components.map((component) => {
+          return component.value
+        })
+
+        this.form.fingerprint = Fingerprint2.x64hash128(values.join(''), 31)
+      })
     }
   },
   created() {
@@ -89,6 +100,8 @@ export default {
         this.isSuccess = false;
         this.serverErrorMsg = error.response.data.msg;
       });
+
+    this.getFingerprint();
   }
 };
 </script>

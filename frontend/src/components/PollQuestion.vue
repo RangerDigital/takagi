@@ -3,8 +3,8 @@
   <p class="form-label">Created by {{ pollData.name }}</p>
   <h1 class="text-hero"> {{pollData.question }} </h1>
   <div class="info-flex">
-    <p class="form-label"><img class="form-icon" src="../assets/icon-msg.svg">12 Votes</p>
-    <p class="form-label">23 March 2020</p>
+    <p class="form-label"><img class="form-icon" src="../assets/icon-msg.svg">{{ allVoters }} Votes</p>
+    <p class="form-label">{{ createdAt }}</p>
   </div>
 </section>
 </template>
@@ -15,9 +15,27 @@ export default {
   props: {
     'pollData': {
       type: Object,
-      required: true,
     },
   },
+  computed: {
+    createdAt() {
+      var date = new Date(this.pollData.created_at * 1000);
+
+      return date.toLocaleString('en', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    },
+    allVoters() {
+      var voters = this.pollData.voters;
+
+      if (!voters) {
+        return 0;
+      }
+      return voters.length;
+    }
+  }
 }
 </script>
 
