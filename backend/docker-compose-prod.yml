@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+    mongo:
+        container_name: takagi_prod_mongo
+        image: 'mongo:latest'
+
+    redis:
+        container_name: takagi_prod_redis
+        image: 'redis:latest'
+
+    takagi:
+        container_name: takagi
+        ports:
+            - '127.0.0.1:5000:8000'
+        environment:
+            - MONGO_ADDRESS=takagi_prod_mongo
+            - REDIS_ADDRESS=takagi_prod_redis
+            - JWT_SECRET_KEY=
+        image: 'rangerdigital/takagi:latest'
+        depends_on:
+        - mongo
