@@ -43,8 +43,6 @@ export default {
       pollId: '',
       updateInterval: null,
 
-      test: ['Hello', 'World', 'fhdh', 'dgsdsgsd'],
-
       isSuccess: false,
       serverErrorMsg: '',
     };
