@@ -132,7 +132,7 @@ export default {
 
 .router-link-active p {
   color: #FF7171;
-  opacity: 60%;
+  opacity: 0.6;
 }
 
 @media only screen and (min-width: 600px) {

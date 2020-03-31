@@ -39,6 +39,6 @@ export default {
 }
 
 .button-style:disabled {
-  opacity: 10%;
+  opacity: 0.1;
 }
 </style>
