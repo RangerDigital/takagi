@@ -1,0 +1,19 @@
+<svg id="messages" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #626468;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <path id="Path_112" data-name="Path 112" class="cls-1" d="M0,0H19V19H0Z"/>
+  <path id="Path_113" data-name="Path 113" class="cls-2" d="M18.708,11.708,16.333,9.333H10.792A.792.792,0,0,1,10,8.542V3.792A.792.792,0,0,1,10.792,3h7.125a.792.792,0,0,1,.792.792v7.917" transform="translate(-2.083 -0.625)"/>
+  <path id="Path_114" data-name="Path 114" class="cls-2" d="M11.708,13.958v1.583a.792.792,0,0,1-.792.792H5.375L3,18.708V10.792A.792.792,0,0,1,3.792,10H5.375" transform="translate(-0.625 -2.083)"/>
+</svg>

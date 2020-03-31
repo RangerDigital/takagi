@@ -29,6 +29,11 @@ const routes = [
     name: 'Create',
     component: () => import('../views/Create.vue')
   },
+  {
+    path: '/polls/:pollId',
+    name: 'PollsVote',
+    component: () => import('../views/PollsVote.vue')
+  },
 ]
 
 const router = new VueRouter({
