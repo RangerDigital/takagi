@@ -11,7 +11,7 @@ services:
     takagi:
         container_name: takagi
         ports:
-            - '127.0.0.1:5000:8000'
+            - '127.0.0.1:7979:8000'
         environment:
             - MONGO_ADDRESS=takagi_prod_mongo
             - REDIS_ADDRESS=takagi_prod_redis
