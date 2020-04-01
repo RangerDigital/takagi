@@ -19,11 +19,11 @@ This project uses **Docker** as a development and production deployment tool, so
 
 <br>
 
-### Backend Setup
+### Backend
 > 🔥 Execute every command in the `./backend` directory!
 
 **If you only want to run It**, you need to:
-- Spin up the whole stack as containers, simply type: 
+- Spin up the whole stack as containers, simply type:
 
   ```bash
   docker-compose up -d
@@ -35,7 +35,7 @@ This will spin up all the necessary containers and expose Takagi service **API**
 
 **If you want to make changes** to the **Flask** app, you need to:
 - Install **Python 3.8**, then projects requirements.
-  
+
   ```bash
   pip3 install -r requirements.txt
   ```
@@ -47,7 +47,7 @@ This will spin up all the necessary containers and expose Takagi service **API**
   ```
 
 - After that spin up **Redis** and **MongoDB** as containers.
-  
+
   ```bash
   docker-compose up -d redis mongo
   ```
@@ -62,7 +62,7 @@ This will spin up all the necessary containers and expose Takagi service **API**
 
 <br>
 
-### Frontend Setup
+### Frontend
 > 🔥 Execute every command in the `./frontend` directory!
 
 If **you want to make changes** to the **Vue.js** app, you need to:
@@ -80,6 +80,34 @@ If **you want to make changes** to the **Vue.js** app, you need to:
 
 This will create a development web server at `http://127.0.0.1:8080`.
 And It's a lot simpler!
+
+<br>
+
+## 💻 Running Tests
+
+**Takagi has a simple set of functional tests!**
+
+This project uses **PyTest**, **PyLint** and **Cypress** as a testing tools, so **you need them** first!
+
+- To run **backend tests**, run Takagi API service and in the `./backend` directory type:
+
+  ```bash
+  pytest .
+  ```
+
+- To run **backend lint**, run in the `./backend` directory:
+
+  ```bash
+  pylint ../backend
+  ```
+
+- To run **Cypress E2E** tests, with everything running, open dashboard by typing:
+
+  ```bash
+  npm run open
+  ```
+
+	This will open a dashboard that will let you run all the specs.
 
 <br>
 
