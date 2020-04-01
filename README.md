@@ -23,6 +23,49 @@ design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in 
 
 <br>
 
+## 🛠 Best Features
+
+**Takagi is CDD (CV Driven Development) in the nutshell!**
+
+Below are the features I had the most fun time developing.
+
+-   Simplified **JWT based authentication system** for users saving their polls.
+
+-   Managed **Sentry** used for application monitoring and exception tracking.
+
+-   **CI/CD** pipelines for automatic building and deploying on my infrastructure build on top of **GitHub Actions**.
+
+-   Simple **End-To-End tests** build with the **Cypress** testing framework run before each frontend deploy by CI/CD 		 		system to achieve the best user experience.
+
+<br>
+
+### Backend Specific
+- **Functional tests** for the API service build with **PyTest** and **Requests** modules.
+
+- Python 3 (Flask) **RESTful** API build on top of **MongoDB** for storing application state.
+
+- **Redis** based, cluster ready, **application-level rate limiting** on some of the API service endpoints.
+
+ - Monitoring `/api/health` endpoint with the most valuable **performance counters** from **Redis**,
+	hooked up to my **Telegraf**, **InfluxDB** and **Grafana** metric monitoring infrastructure (*Cool graphs!* 🤓)
+
+- Fully **Dockerized** development workflow, taking advantage of **docker-compose** for developing, testing and deployments.
+
+<br>
+
+### Frontend Specific
+- Beautifully designed **SPA** frontend build with **Vue.js** and **Vue-Router**.
+
+- **Valve's Fingerprint.js 2** library used for identifying users to avoid duplicated votes.
+
+- **Client-side forms validation** build with **Vee-Validate** used for achieving better user experience.
+
+<br>
+
+That's all I remember...
+
+<br>
+
 ## 💻 Running Locally
 
 **It's easy to get started with developing Takagi!**
