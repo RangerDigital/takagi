@@ -12,7 +12,7 @@
     </div>
 
     <div>
-      <TextButton class="anim-button" @clickEvent="$router.push('/create')">TAKE ME HOME</TextButton>
+      <TextButton class="anim-button" @clickEvent="$router.push('/')">TAKE ME HOME</TextButton>
       <p>Go back to home page!</p>
     </div>
   </div>
