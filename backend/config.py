@@ -6,7 +6,7 @@ class Configuration:
 
     def __init__(self):
         # MongoDB Configuration
-        self.MONGO_ADDRESS = os.environ.get("MONGO_ADDRESS") or "10.0.0.1"
+        self.MONGO_ADDRESS = os.environ.get("MONGO_ADDRESS") or "127.0.0.1"
         self.MONGO_DATABASE = os.environ.get("MONGO_DATABASE") or "takagi"
 
         # Redis Configuration

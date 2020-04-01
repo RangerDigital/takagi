@@ -1,10 +1,15 @@
 module.exports = {
   devServer: {
     proxy: {
-      '/*': {
-        target: "http://192.168.5.87:5000/",
-        logLevel: 'debug'
-      }
+      '^/api': {
+        target: 'http://127.0.0.1:5000',
+        pathRewrite: {
+          '^/api': ''
+        },
+        changeOrigin: true,
+        secure: false,
+        debug: true,
+      },
     }
   }
 }
