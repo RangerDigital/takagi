@@ -12,10 +12,14 @@
 ![Build - Production](https://github.com/RangerDigital/takagi/workflows/Build%20-%20Production/badge.svg?branch=master)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Source of **Takagi**, simple web application build with **Flask** and **Vue.js** used to conduct quick, anonymous polls over the internet.
+Source code of **Takagi**, a simple web application build with **Flask** and **Vue.js** used to conduct quick and anonymous polls over the internet.
 
-**Takagi** was built as a university web development course project,  
-That means it's simpler than It should be, to be considered a production app!
+Takagi was built as an assignment for my university web-dev course.
+
+So It may lack certain business features because everything was done by me,  
+design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in limited time.
+
+> 👑 It's alive! Check it out live at [takagi.bednarski.dev](https://takagi.bednarski.dev/)!
 
 <br>
 
