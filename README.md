@@ -14,7 +14,7 @@
 
 Source code of **Takagi**, a simple web application build with **Flask** and **Vue.js** used to conduct quick and anonymous polls over the internet.
 
-Takagi was built as an assignment for my university web-dev course.
+> 💡 Takagi was built as an assignment for my university Web-Dev course.
 
 So It may lack certain business features because everything was done by me,  
 design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in limited time.
@@ -62,7 +62,7 @@ Below are the features I had the most fun time developing.
 
 <br>
 
-That's all I remember...
+That's all I can remember...
 
 <br>
 
