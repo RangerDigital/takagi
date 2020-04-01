@@ -25,7 +25,9 @@ This project uses **Docker** as a development and production deployment tool, so
 **If you only want to run It**, you need to:
 - Spin up the whole stack as containers, simply type: 
 
-  `docker-compose up -d`
+  ```bash
+  docker-compose up -d
+  ```
 
 This will spin up all the necessary containers and expose Takagi service **API** at `http://127.0.0.1:5000`.
 
@@ -33,20 +35,28 @@ This will spin up all the necessary containers and expose Takagi service **API**
 
 **If you want to make changes** to the **Flask** app, you need to:
 - Install **Python 3.8**, then projects requirements.
-
-  `pip3 install -r requirements.txt`
+  
+  ```bash
+  pip3 install -r requirements.txt
+  ```
 
 - Also, It's *optionally* development requirements.
 
-  `pip3 install -r dev-requirements.txt`
+  ```bash
+  pip3 install -r dev-requirements.txt
+  ```
 
 -   After that spin up **Redis** and **MongoDB** as containers.
-
-  `docker-compose up -d redis mongo`
+  
+  ```bash
+  docker-compose up -d redis mongo
+  ```
 
 - Run `main.py`, entry point for Flask app.
 
-  `python3 ./main.py`
+  ```bash
+  python3 ./main.py
+  ```
 
   This will spin up databases, and run Python code with the development server at `http://127.0.0.1:5000`.
 
@@ -58,11 +68,15 @@ This will spin up all the necessary containers and expose Takagi service **API**
 If **you want to make changes** to the **Vue.js** app, you need to:
 -   Install **NPM**, then projects requirements.
 
-  `npm install`
+  ```bash
+  npm install
+  ```
 
 -   To then serve a website, simply type:
 
-  `npm run serve`
+  ```bash
+  npm run serve
+  ```
 
 This will create a development web server at `http://127.0.0.1:8080`.
 And It's a lot simpler!
