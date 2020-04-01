@@ -55,7 +55,6 @@ p {
   text-align: center;
 }
 
-
 /* Global Helpers */
 .full-page {
   height: 100vh;
