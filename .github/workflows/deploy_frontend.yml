@@ -8,9 +8,42 @@ on:
     - "frontend/**"
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Prepare backend for testing
+      run: cd ./backend; docker-compose up -d
+
+    - name: Install dependencies
+      run: cd ./frontend; npm install
+      env:
+        CI: true
+        
+    - name: Run development server in the background
+      run: cd ./frontend; nohup npm run serve &
+      env:
+        CI: true
+        
+    - name: Run E2E tests
+      run: cd ./frontend; npm run test
+      env:
+        CI: true
+
+    - name: Setup Tmate session
+      uses: mxschmitt/action-tmate@v1
+      if: failure()
+      
+  build:
+    runs-on: ubuntu-latest
+    needs: test
 
     steps:
     - uses: actions/checkout@v1
@@ -21,7 +54,7 @@ jobs:
         node-version: 12.x
 
     - name: Build static files
-      run: cd frontend; npm install; npm run build
+      run: cd ./frontend; npm install; npm run build
       env:
         CI: true
 
