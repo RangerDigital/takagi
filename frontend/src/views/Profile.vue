@@ -10,7 +10,7 @@
           <div class="form-input">
             <p class="form-label"><img class="form-icon" src="../assets/icon-tag.svg">Name</p>
             <ValidationProvider rules="required|min:3|max:15" v-slot="v">
-              <SingleInput v-model="form.name" placeholder="e.g. John" />
+              <SingleInput v-model="form.name" placeholder="e.g. John" data-cy="profile-name"/>
               <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
               <p class="text-center" v-else>. . .</p>
             </ValidationProvider>
@@ -19,7 +19,7 @@
           <div class="form-input">
             <p class="form-label"><img class="form-icon" src="../assets/icon-lock.svg">E-Mail</p>
             <ValidationProvider rules="required|email" v-slot="v">
-              <SingleInput v-model="form.email" type="email" placeholder="e.g. me@gmail.com" />
+              <SingleInput v-model="form.email" type="email" placeholder="e.g. me@gmail.com" data-cy="profile-email"/>
               <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
               <p class="text-center" v-else>. . .</p>
             </ValidationProvider>
@@ -34,7 +34,7 @@
         <div class="form-input">
           <p class="form-label"><img class="form-icon" src="../assets/icon-lock.svg">New Password</p>
           <ValidationProvider rules="min:8" v-slot="v">
-            <SingleInput v-model="password" placeholder="e.g. Pretty obvious, right?" />
+            <SingleInput v-model="password" placeholder="e.g. Pretty obvious, right?" data-cy="profile-password"/>
             <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
             <p class="text-center" v-else>. . .</p>
           </ValidationProvider>

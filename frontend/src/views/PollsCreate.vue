@@ -7,7 +7,7 @@
         <div class="form-input">
           <p class="form-label"><img class="form-icon" src="../assets/icon-edit.svg">Poll Question</p>
           <ValidationProvider rules="required|max:100" v-slot="v">
-            <textarea class="form-input-area" v-model="form.question" placeholder="e.g. More free time?" rows="3" cols="33"></textarea>
+            <textarea class="form-input-area" v-model="form.question" placeholder="e.g. More free time?" rows="3" cols="33" data-cy="question-input"></textarea>
             <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
           </ValidationProvider>
         </div>
@@ -15,7 +15,7 @@
         <div class="form-input">
           <p class="form-label"><img class="form-icon" src="../assets/icon-tag.svg">New Option</p>
           <ValidationProvider rules="max:50" v-slot="v">
-            <SingleInput v-model="newOption" placeholder="e.g. Yes, of course!" @onEnter="addOption" />
+            <SingleInput v-model="newOption" placeholder="e.g. Yes, of course!" @onEnter="addOption" data-cy="option-input" />
             <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
           </ValidationProvider>
 
