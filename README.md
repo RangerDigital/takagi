@@ -20,42 +20,49 @@ This project uses **Docker** as a development and production deployment tool, so
 <br>
 
 ### # Backend Setup
-> 🔥 Execute every command in `./backend` directory!
+> 🔥 Execute every command in the `./backend` directory!
 
 **If you only want to run It**, you need to:
 - Spin up the whole stack as containers, simply type: 
-`docker-compose up -d`
+
+  `docker-compose up -d`
 
 This will spin up all the necessary containers and expose Takagi service **API** at `http://127.0.0.1:5000`.
 
 <br>
 
 **If you want to make changes** to the **Flask** app, you need to:
--   Install **Python 3.8**, then projects requirements.
-`pip3 install -r requirements.txt`
+- Install **Python 3.8**, then projects requirements.
 
--   Also, It's *optionally* development requirements.
-`pip3 install -r dev-requirements.txt`
+  `pip3 install -r requirements.txt`
+
+- Also, It's *optionally* development requirements.
+
+  `pip3 install -r dev-requirements.txt`
 
 -   After that spin up **Redis** and **MongoDB** as containers.
-`docker-compose up -d redis mongo`
 
--   Run `main.py`, entry point for Flask app.
-`python3 ./main.py`
+  `docker-compose up -d redis mongo`
 
-This will spin up databases, and run Python code with the development server at `http://127.0.0.1:5000`.
+- Run `main.py`, entry point for Flask app.
+
+  `python3 ./main.py`
+
+  This will spin up databases, and run Python code with the development server at `http://127.0.0.1:5000`.
 
 <br>
 
 ### # Frontend Setup
-> 🔥 Execute every command in `./frontend` directory!
+> 🔥 Execute every command in the `./frontend` directory!
 
 If **you want to make changes** to the **Vue.js** app, you need to:
 -   Install **NPM**, then projects requirements.
-`npm install`
+
+  `npm install`
 
 -   To then serve a website, simply type:
-`npm run serve`
+
+  `npm run serve`
 
 This will create a development web server at `http://127.0.0.1:8080`.
 And It's a lot simpler!
