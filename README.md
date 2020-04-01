@@ -19,7 +19,7 @@ This project uses **Docker** as a development and production deployment tool, so
 
 <br>
 
-### # Backend Setup
+### 📮 Backend Setup
 > 🔥 Execute every command in the `./backend` directory!
 
 **If you only want to run It**, you need to:
@@ -46,7 +46,7 @@ This will spin up all the necessary containers and expose Takagi service **API**
   pip3 install -r dev-requirements.txt
   ```
 
--   After that spin up **Redis** and **MongoDB** as containers.
+- After that spin up **Redis** and **MongoDB** as containers.
   
   ```bash
   docker-compose up -d redis mongo
@@ -62,7 +62,7 @@ This will spin up all the necessary containers and expose Takagi service **API**
 
 <br>
 
-### # Frontend Setup
+### 📦 Frontend Setup
 > 🔥 Execute every command in the `./frontend` directory!
 
 If **you want to make changes** to the **Vue.js** app, you need to:
