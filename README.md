@@ -1,4 +1,12 @@
-<h1 align="center">Takagi</h1>
+<p align="center">
+  <br /><img
+    width="600"
+    src="logo.png"
+    alt="Takagi - Online Polls"
+  />
+</p>
+
+***
 
 ![Deploy - Frontend](https://github.com/RangerDigital/takagi/workflows/Deploy%20-%20Frontend/badge.svg?branch=master)
 ![Build - Production](https://github.com/RangerDigital/takagi/workflows/Build%20-%20Production/badge.svg?branch=master)
