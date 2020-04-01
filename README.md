@@ -66,13 +66,13 @@ This will spin up all the necessary containers and expose Takagi service **API**
 > 🔥 Execute every command in the `./frontend` directory!
 
 If **you want to make changes** to the **Vue.js** app, you need to:
--   Install **NPM**, then projects requirements.
+- Install **NPM**, then projects requirements.
 
   ```bash
   npm install
   ```
 
--   To then serve a website, simply type:
+- To then serve a website, simply type:
 
   ```bash
   npm run serve
