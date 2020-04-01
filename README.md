@@ -13,7 +13,7 @@ That means it's simpler than It should be, to be considered a production app!
 
 ## 💻 Running Locally
 
-**It's easy to get going with developing Takagi!**
+**It's easy to get started with developing Takagi!**
 
 This project uses **Docker** as a development and production deployment tool, so **you need It** first!
 
