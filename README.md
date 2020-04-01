@@ -17,6 +17,8 @@ That means it's simpler than It should be, to be considered a production app!
 
 This project uses **Docker** as a development and production deployment tool, so **you need It** first!
 
+<br>
+
 ### # Backend Setup
 > 🔥 Execute every command in `./backend` directory!
 
@@ -26,8 +28,9 @@ This project uses **Docker** as a development and production deployment tool, so
 
 This will spin up all the necessary containers and expose Takagi service **API** at `http://127.0.0.1:5000`.
 
----
-But if **you want to make changes** to the **Flask** app, you need to:
+<br>
+
+**If you want to make changes** to the **Flask** app, you need to:
 -   Install **Python 3.8**, then projects requirements.
 `pip3 install -r requirements.txt`
 
@@ -41,6 +44,8 @@ But if **you want to make changes** to the **Flask** app, you need to:
 `python3 ./main.py`
 
 This will spin up databases, and run Python code with the development server at `http://127.0.0.1:5000`.
+
+<br>
 
 ### # Frontend Setup
 > 🔥 Execute every command in `./frontend` directory!
