@@ -14,12 +14,16 @@
 
 Source code of **Takagi**, a simple web application build with **Flask** and **Vue.js** used to conduct quick and anonymous polls over the internet.
 
-> 💡 Takagi was built as an assignment for my university Web-Dev course.
+> 🔥 Takagi was built as an assignment for my university Web-Dev course.
 
-So It may lack certain business features because everything was done by me,  
-design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in limited time.
+Takagi may lack certain business features because everything was done by me, that includes:     
+Design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in a limited amount of time.
 
 > 👑 It's alive! Check it out live at [takagi.bednarski.dev](https://takagi.bednarski.dev/)!
+
+<p align="center">
+	<img src="mockup.png" alt="Takagi - Mobile Mockup" width=750/>
+</p>
 
 <br>
 
@@ -27,7 +31,7 @@ design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in 
 
 **Takagi is CDD (CV Driven Development) in the nutshell!**
 
-Below are the features I had the most fun time developing.
+Below are the features I had the most fun developing.
 
 -   Simplified **JWT based authentication system** for users saving their polls.
 
@@ -62,7 +66,7 @@ Below are the features I had the most fun time developing.
 
 <br>
 
-That's all I can remember...
+That's all I can remember... 😉
 
 <br>
 
@@ -75,7 +79,7 @@ This project uses **Docker** as a development and production deployment tool, so
 <br>
 
 ### Backend
-> 🔥 Execute every command in the `./backend` directory!
+> 💡 Execute every command in the `./backend` directory!
 
 **If you only want to run It**, you need to:
 - Spin up the whole stack as containers, simply type:
@@ -118,7 +122,7 @@ This will spin up all the necessary containers and expose Takagi service **API**
 <br>
 
 ### Frontend
-> 🔥 Execute every command in the `./frontend` directory!
+> 💡 Execute every command in the `./frontend` directory!
 
 If **you want to make changes** to the **Vue.js** app, you need to:
 - Install **NPM**, then projects requirements.
@@ -138,7 +142,7 @@ And It's a lot simpler!
 
 <br>
 
-## 💻 Running Tests
+## 📋 Running Tests
 
 **Takagi has a simple set of functional tests!**
 
@@ -170,8 +174,8 @@ This project uses **PyTest**, **PyLint** and **Cypress** as a testing tools, so 
 
 **You are more than welcome to help me improve Takagi!**
 
-Just fork this project from the `master` branch and submit a Pull Request (PR).
-If you are modifying backend you should also run `pytest` functional tests inside `backend/tests` directory.
+Just fork this project from the `master` branch and submit a Pull Request (PR).  
+It's probably a good idea to run all the tests beforehand.
 
 <br>
 
