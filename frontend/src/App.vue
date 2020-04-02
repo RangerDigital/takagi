@@ -56,11 +56,6 @@ p {
 }
 
 /* Global Helpers */
-.full-page {
-  height: 100vh;
-  width: 100vw;
-}
-
 .g-full-page {
   height: 100vh;
   width: 100vw;
