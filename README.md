@@ -16,16 +16,14 @@ Source code of **Takagi**, a simple web application build with **Flask** and **V
 
 > 🔥 Takagi was built as an assignment for my university Web-Dev course.
 
-Takagi may lack certain business features because everything was done by me, that includes:     
-Design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in a limited amount of time.
+Takagi may lack certain business features because everything was done by me, that includes,     
+design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in a limited amount of time.
 
 > 👑 It's alive! Check it out live at [takagi.bednarski.dev](https://takagi.bednarski.dev/)!
 
 <p align="center">
-	<img src="mockup.png" alt="Takagi - Mobile Mockup" width=750/>
+	<img src="mockup.png" alt="Takagi - Mobile Mockup" width=800/>
 </p>
-
-<br>
 
 ## 🛠 Best Features
 
@@ -39,7 +37,7 @@ Below are the features I had the most fun developing.
 
 -   **CI/CD** pipelines for automatic building and deploying on my infrastructure build on top of **GitHub Actions**.
 
--   Simple **End-To-End tests** build with the **Cypress** testing framework run before each frontend deploy by CI/CD 		 		system to achieve the best user experience.
+-   Simple **End-To-End tests** build with the **Cypress** testing framework run before each frontend deploy by CI/CD system to achieve the best user experience.
 
 <br>
 
