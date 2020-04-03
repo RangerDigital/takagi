@@ -214,7 +214,7 @@ export default {
 
 @media only screen and (min-width: 600px) {
   .hero-text {
-    font-size: 6.5rem;
+    font-size: 9.5rem;
   }
 
   .heading-text h1 {

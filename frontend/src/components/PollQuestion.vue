@@ -3,7 +3,7 @@
   <p v-if="!slim" class="form-label">Created by {{ pollData.name }}</p>
   <h1 class="text-hero"> {{pollData.question }} </h1>
   <div class="info-flex">
-    <p class="form-label"><img class="form-icon" src="../assets/icon-msg.svg">{{ allVoters }} Votes</p>
+    <p class="form-label"><img class="form-icon" src="../assets/icon-msg.svg" alt="Message Icon">{{ allVoters }} Votes</p>
     <p class="form-label">{{ createdAt }}</p>
   </div>
 </section>

@@ -5,7 +5,7 @@
   <div class="component-flex">
     <div>
       <IconButton @clickEvent="$router.push('/create')">
-        <p>CREATE POLL</p><img src="../assets/icon-arrow-bar.svg" />
+        <p>CREATE POLL</p><img src="../assets/icon-arrow-bar.svg" alt="Navigation Icon"/>
       </IconButton>
 
       <p class="text-label">Create a new poll.</p>
@@ -15,14 +15,14 @@
     <template v-if="!isUserLogged">
       <div>
         <IconButton @clickEvent="$router.push('/login')">
-          <p>SIGN IN</p><img src="../assets/icon-arrow-bar.svg" />
+          <p>SIGN IN</p><img src="../assets/icon-arrow-bar.svg" alt="Navigation Icon"/>
         </IconButton>
         <p class="text-label">Login to your existing account.</p>
       </div>
 
       <div>
         <IconButton @clickEvent="$router.push('/register')">
-          <p>SIGN UP</p><img src="../assets/icon-arrow-bar.svg" />
+          <p>SIGN UP</p><img src="../assets/icon-arrow-bar.svg" alt="Navigation Icon"/>
         </IconButton>
         <p class="text-label">Create a new account.</p>
       </div>
@@ -32,7 +32,7 @@
     <template v-if="isUserLogged">
       <div>
         <IconButton @clickEvent="$router.push('/polls')">
-          <p>MY POLLS</p><img src="../assets/icon-arrow-bar.svg" />
+          <p>MY POLLS</p><img src="../assets/icon-arrow-bar.svg" alt="Navigation Icon"/>
         </IconButton>
 
         <p class="text-label">Manage your existing polls.</p>
@@ -40,7 +40,7 @@
 
       <div>
         <IconButton @clickEvent="$router.push('/profile')">
-          <p>MY PROFILE</p><img src="../assets/icon-arrow-bar.svg" />
+          <p>MY PROFILE</p><img src="../assets/icon-arrow-bar.svg" alt="Navigation Icon"/>
         </IconButton>
 
         <p class="text-label">Manage your account.</p>

@@ -5,18 +5,22 @@
     <div class="g-component-flex">
       <div>
         <div class="form-input">
-          <p class="form-label"><img class="form-icon" src="../assets/icon-edit.svg">Poll Question</p>
           <ValidationProvider rules="required|max:100" v-slot="v">
-            <textarea class="form-input-area" v-model="form.question" placeholder="e.g. More free time?" rows="3" cols="33" data-cy="question-input"></textarea>
-            <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
+            <label>
+              <p class="form-label"><img class="form-icon" src="../assets/icon-edit.svg" alt="Edit Icon">Poll Question</p>
+              <textarea class="form-input-area" v-model="form.question" placeholder="e.g. More free time?" rows="3" cols="33" data-cy="question-input"></textarea>
+            </label>
+            <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg" alt="Alert Icon"> {{ v.errors[0] }}</p>
           </ValidationProvider>
         </div>
 
         <div class="form-input">
-          <p class="form-label"><img class="form-icon" src="../assets/icon-tag.svg">New Option</p>
           <ValidationProvider rules="max:50" v-slot="v">
-            <SingleInput v-model="newOption" placeholder="e.g. Yes, of course!" @onEnter="addOption" data-cy="option-input" />
-            <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg"> {{ v.errors[0] }}</p>
+            <label>
+              <p class="form-label"><img class="form-icon" src="../assets/icon-tag.svg" alt="Tag Icon">New Option</p>
+              <SingleInput v-model="newOption" placeholder="e.g. Yes, of course!" @onEnter="addOption" data-cy="option-input" />
+            </label>
+            <p class="text-error" v-if="v.errors.length"><img class="form-icon" src="../assets/icon-alert-red.svg" alt="Alert Icon"> {{ v.errors[0] }}</p>
           </ValidationProvider>
 
           <TextButton @clickEvent="addOption" :disabled="!newOption[0] || invalid">ADD OPTION</TextButton>
@@ -24,8 +28,8 @@
       </div>
 
       <div class="options-list">
-        <p v-if="form.options[0]" class="form-label"><img class="form-icon" src="../assets/icon-clip.svg">Available Options {{ form.options.length }}/15)</p>
-        <p v-else class="form-label"><img class="form-icon" src="../assets/icon-msg.svg">Add more options for your voters.</p>
+        <p v-if="form.options[0]" class="form-label"><img class="form-icon" src="../assets/icon-clip.svg" alt="Clip Icon">Available Options {{ form.options.length }}/15)</p>
+        <p v-else class="form-label"><img class="form-icon" src="../assets/icon-msg.svg" alt="Message Icon">Add more options for your voters.</p>
 
         <div v-for="(item, index) in form.options" :key="index">
           <div class="options-item g-clickable" @click="deleteOption(index)">
