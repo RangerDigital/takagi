@@ -78,7 +78,7 @@ p {
 /* View Transition Animations */
 .fade-enter-active,
 .fade-leave-active {
-  transition-duration: 0.3s;
+  transition-duration: 0.1s;
   transition-property: opacity;
   transition-timing-function: ease;
 }
