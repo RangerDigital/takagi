@@ -154,9 +154,13 @@ export default {
       })
       .catch(error => {
         console.log(error)
-
-        localStorage.removeItem('jwt_token');
-        this.$http.defaults.headers.common['Authorization'] = '';
+        
+        if (error.response.status === 401) {
+          localStorage.removeItem('jwt_token');
+          this.$http.defaults.headers.common['Authorization'] = '';
+          
+          this.$router.push('/')
+        }
       });
   }
 };

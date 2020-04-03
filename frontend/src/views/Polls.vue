@@ -51,6 +51,13 @@ export default {
         .catch(error => {
           this.isSuccess = false;
           this.serverErrorMsg = error.response.data.msg;
+          
+          if (error.response.status === 401) {
+            localStorage.removeItem('jwt_token');
+            this.$http.defaults.headers.common['Authorization'] = '';
+            
+            this.$router.push('/')
+          }
         });
     },
   },
