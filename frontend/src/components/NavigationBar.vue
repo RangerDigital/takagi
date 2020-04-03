@@ -7,10 +7,10 @@
     </div>
 
     <!-- Mode: menu - Hamburger Menu -->
-    <router-link to="/navigation" v-if="mode == 'menu'"><img src="../assets/icon-nav.svg" class="nav-icon"></router-link>
+    <router-link to="/navigation" v-if="mode == 'menu'"><img src="../assets/icon-nav.svg" class="nav-icon" alt="Navigation Button"></router-link>
 
     <!-- Mode: back - Go Back Button -->
-    <img @click="$router.go(-1)" v-if="mode == 'back'" src="../assets/icon-x.svg" class="nav-icon">
+    <img @click="$router.go(-1)" v-if="mode == 'back'" src="../assets/icon-x.svg" class="nav-icon" alt="Navigation Button">
 
   </nav>
 
