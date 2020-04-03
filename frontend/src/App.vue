@@ -73,6 +73,7 @@ p {
 
 .g-clickable {
   cursor: pointer;
+  user-select: none;
 }
 
 /* View Transition Animations */
