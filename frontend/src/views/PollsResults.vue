@@ -132,6 +132,7 @@ export default {
       }
       return unsorted.sort(compare);
     },
+    
     isOwnedByUser() {
       if (this.pollData._user_id == this.userId) {
         return true;

@@ -1,6 +1,6 @@
 <template>
-<section class="footer-flex" class="g-clickable">
-  <a href="https://github.com/RangerDigital/takagi">
+<section class="footer-flex">
+  <a href="https://github.com/RangerDigital/takagi" class="g-clickable">
     <p class="text-label">GitHub</p>
   </a>
 
