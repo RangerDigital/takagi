@@ -116,6 +116,10 @@ export default {
 </script>
 
 <style scoped>
+.g-full-page {
+  overflow-x: hidden;
+}
+
 .form-label {
   color: #626468;
   text-align: left;
