@@ -74,6 +74,8 @@ export default {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
 
+  overflow-wrap: break-word;
+
   font-size: 2.2rem;
 }
 

@@ -59,6 +59,8 @@ export default {
 }
 
 .options-item {
+  overflow-wrap: break-word;
+
   width: 30rem;
   border-radius: 5px;
 

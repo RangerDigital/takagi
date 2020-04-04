@@ -127,11 +127,13 @@ export default {
 
 .options-list {
   min-height: 60%;
+  overflow-wrap: break-word;
 }
 
 .options-item {
   width: 30rem;
   border-radius: 5px;
+
 
   border: 1.5px solid #121213;
   margin: 0 auto;

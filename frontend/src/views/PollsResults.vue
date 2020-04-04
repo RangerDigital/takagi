@@ -175,6 +175,7 @@ export default {
 
 .options-list {
   min-height: 60%;
+  overflow-wrap: break-word;
 }
 
 .options-list-info {
