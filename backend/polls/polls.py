@@ -14,7 +14,8 @@ polls = Blueprint("polls", __name__)
 
 class Poll(Schema):
     question = fields.String(required=True, validate=validate.Length(min=1, max=100))
-    options = fields.List(fields.String(validate=validate.Length(min=1, max=50)), required=True, validate=validate.Length(min=2, max=15))
+    options = fields.List(fields.String(validate=validate.Length(min=1, max=50)),
+                          required=True, validate=validate.Length(min=2, max=5))
 
 
 class Vote(Schema):
@@ -111,7 +112,7 @@ def vote_poll(payload, poll_id):
         return return_error("You already voted in that poll!")
 
     poll["voters"].append(payload["fingerprint"])
-    
+
     try:
         poll["options"][payload["option_id"]]["votes"] += 1
     except IndexError:
