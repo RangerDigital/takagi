@@ -45,8 +45,9 @@ export default {
 <style scoped>
 .question-container {
   width: 30rem;
-
   margin: 0 auto;
+
+  margin-bottom: 2rem;
 }
 
 .text-center {
