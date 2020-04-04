@@ -4,7 +4,7 @@
 
   <div class="component-flex">
     <div>
-      <h1 class="hero-text">TAKAGI</h1>
+      <h1 class="hero-text">Takagi-<span class="text-red">Chan</span></h1>
 
       <div class="heading-text">
         <h1>Create <span class="text-red">instant</span> and</h1>
