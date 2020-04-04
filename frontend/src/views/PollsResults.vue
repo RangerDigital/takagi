@@ -132,7 +132,7 @@ export default {
       }
       return unsorted.sort(compare);
     },
-    
+
     isOwnedByUser() {
       if (this.pollData._user_id == this.userId) {
         return true;
@@ -167,6 +167,10 @@ export default {
 .form-label {
   color: #626468;
   text-align: left;
+}
+
+.options-list {
+  min-height: 60%;
 }
 
 .options-list-info {

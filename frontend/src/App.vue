@@ -57,6 +57,8 @@ p {
 
 /* Global Helpers */
 .g-full-page {
+  overflow-x: hidden;
+
   height: 100vh;
   width: 100vw;
 }

@@ -121,6 +121,10 @@ export default {
   text-align: left;
 }
 
+.options-list {
+  min-height: 60%;
+}
+
 .options-item {
   width: 30rem;
   border-radius: 5px;
