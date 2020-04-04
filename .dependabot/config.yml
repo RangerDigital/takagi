@@ -1,0 +1,11 @@
+version: 1
+update_configs:
+  - package_manager: "javascript"
+    directory: "/frontend"
+    target_branch: "master"
+    update_schedule: "weekly"
+
+  - package_manager: "python"
+    directory: "/backend"
+    target_branch: "master"
+    update_schedule: "weekly"
