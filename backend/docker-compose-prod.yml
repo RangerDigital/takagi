@@ -3,10 +3,18 @@ services:
     mongo:
         container_name: takagi_prod_mongo
         image: 'mongo:latest'
+        volumes:
+        - takagi_prod_data:/data/db
+        deploy:
+          restart_policy:
+            condition: always
 
     redis:
         container_name: takagi_prod_redis
         image: 'redis:latest'
+        deploy:
+          restart_policy:
+            condition: always
 
     takagi:
         container_name: takagi
@@ -17,5 +25,12 @@ services:
             - REDIS_ADDRESS=takagi_prod_redis
             - JWT_SECRET_KEY=
         image: 'rangerdigital/takagi:latest'
+        deploy:
+          restart_policy:
+            condition: always
         depends_on:
         - mongo
+        - redis
+
+volumes:
+  takagi_prod_data:
