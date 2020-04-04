@@ -94,6 +94,12 @@ p {
 
 @media only screen and (min-width: 1500px) {
   html {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  html {
     font-size: 13px;
   }
 }
