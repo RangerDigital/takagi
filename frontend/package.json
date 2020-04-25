@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@sentry/browser": "^5.15.4",
+    "@sentry/browser": "^5.15.5",
     "@sentry/integrations": "^5.15.4",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
