@@ -1,0 +1,67 @@
+name: Run Tests - Pull Request
+
+on:
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Docker Buildx
+      uses: crazy-max/ghaction-docker-buildx@v1
+      with:
+        version: latest
+
+    - name: Install Dev requirements
+      run: pip3 install -r ./backend/dev-requirements.txt
+
+    - name: Run Buildx for test build
+      run: docker buildx build --tag rangerdigital/takagi:latest --platform linux/amd64 --output type=docker backend/.
+
+    - name: Prepare containers for testing
+      run: cd ./backend; docker-compose up -d
+
+    - name: Run all the tests
+      run: sleep 5; cd ./backend; python3 -m pytest
+
+    - name: Setup Tmate session
+      uses: mxschmitt/action-tmate@v1
+      if: failure()
+
+  test-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+
+    - name: Prepare backend for testing
+      run: cd ./backend; docker-compose up -d
+
+    - name: Install dependencies
+      run: cd ./frontend; npm install
+      env:
+        CI: true
+        
+    - name: Run development server in the background
+      run: cd ./frontend; nohup npm run serve &
+      env:
+        CI: true
+        
+    - name: Run E2E tests
+      run: cd ./frontend; npm run test
+      env:
+        CI: true
+
+    - name: Setup Tmate session
+      uses: mxschmitt/action-tmate@v1
+      if: failure()
