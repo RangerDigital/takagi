@@ -4,8 +4,16 @@ update_configs:
     directory: "/frontend"
     target_branch: "master"
     update_schedule: "weekly"
+    automerged_updates:
+      - match:
+          dependency_name: "*"
+          update_type: "all"
 
   - package_manager: "python"
     directory: "/backend"
     target_branch: "master"
     update_schedule: "weekly"
+    automerged_updates:
+      - match:
+          dependency_name: "*"
+          update_type: "all"
