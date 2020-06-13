@@ -17,7 +17,7 @@
     "fingerprintjs2": "^2.1.0",
     "vee-validate": "^3.3.2",
     "vue": "^2.6.11",
-    "vue-router": "^3.3.2"
+    "vue-router": "^3.3.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.1",
