@@ -3,7 +3,7 @@ update_configs:
   - package_manager: "javascript"
     directory: "/frontend"
     target_branch: "master"
-    update_schedule: "weekly"
+    update_schedule: "monthly"
     automerged_updates:
       - match:
           dependency_name: "*"
@@ -12,7 +12,7 @@ update_configs:
   - package_manager: "python"
     directory: "/backend"
     target_branch: "master"
-    update_schedule: "weekly"
+    update_schedule: "monthly"
     automerged_updates:
       - match:
           dependency_name: "*"
