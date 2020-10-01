@@ -15,7 +15,7 @@
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "fingerprintjs2": "^2.1.2",
-    "vee-validate": "^3.3.11",
+    "vee-validate": "^3.4.0",
     "vue": "^2.6.12",
     "vue-router": "^3.4.3"
   },
