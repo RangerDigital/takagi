@@ -62,7 +62,7 @@ jobs:
       run: sudo apt update; sudo apt install rsync
 
     - name: Set up RSync
-      uses: webfactory/ssh-agent@v0.1.1
+      uses: webfactory/ssh-agent@v0.4.1
       with:
         ssh-private-key: ${{ secrets.SSH_KEY }}
 
