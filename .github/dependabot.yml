@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/frontend"
+  schedule:
+    interval: monthly
+    time: "09:00"
+  open-pull-requests-limit: 10
+  target-branch: master
+- package-ecosystem: pip
+  directory: "/backend"
+  schedule:
+    interval: monthly
+    time: "09:00"
+  open-pull-requests-limit: 10
+  target-branch: master
