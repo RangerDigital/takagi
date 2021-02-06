@@ -33,6 +33,6 @@ def get_health():
         payload["redis_db"] = "success"
     except: # pylint: disable=W0702
         payload["redis_db"] = "failure"
-        code = 503
+        code = 502
 
     return return_json(payload), code
