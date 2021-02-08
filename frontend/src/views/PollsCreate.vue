@@ -28,7 +28,7 @@
         </div>
 
         <div class="options-list">
-          <p v-if="form.options[0]" class="form-label"><img class="g-form-icon" src="../assets/icon-clip.svg" alt="Clip Icon" />Available Options {{ form.options.length }}/5)</p>
+          <p v-if="form.options[0]" class="form-label"><img class="g-form-icon" src="../assets/icon-clip.svg" alt="Clip Icon" />Available Options ({{ form.options.length }}/5)</p>
           <p v-else class="form-label"><img class="g-form-icon" src="../assets/icon-msg.svg" alt="Message Icon" />Add more options for your voters.</p>
 
           <div v-for="(item, index) in form.options" :key="index">
