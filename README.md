@@ -1,12 +1,12 @@
 <p align="center">
   <br /><img
-    width="600"
-    src="logo.png"
+    width="800"
+    src="render.png"
     alt="Takagi - Online Polls"
   />
 </p>
 
-***
+---
 
 ![Deploy - Frontend](https://github.com/RangerDigital/takagi/workflows/Deploy%20-%20Frontend/badge.svg?branch=master)
 ![Build - Production](https://github.com/RangerDigital/takagi/workflows/Build%20-%20Production/badge.svg?branch=master)
@@ -16,7 +16,7 @@ Source code of **Takagi**, a simple web application build with **Flask** and **V
 
 > 🔥 Takagi was built as an assignment for my university Web-Dev course.
 
-Takagi may lack certain business features because everything was done by me, that includes,     
+Takagi may lack certain business features because everything was done by me, that includes,  
 design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in a limited amount of time.
 
 > 👑 It's alive! Check it out live at [takagi.bednarski.dev](https://takagi.bednarski.dev/)!
@@ -31,31 +31,33 @@ design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in 
 
 Below are the features I had the most fun developing.
 
--   Simplified **JWT based authentication system** for users saving their polls.
+- Simplified **JWT based authentication system** for users saving their polls.
 
--   Managed **Sentry** used for application monitoring and exception tracking.
+- Managed **Sentry** used for application monitoring and exception tracking.
 
--   **CI/CD** pipelines for automatic building and deploying on my infrastructure build on top of **GitHub Actions**.
+- **CI/CD** pipelines for automatic building and deploying on my infrastructure build on top of **GitHub Actions**.
 
--   Simple **End-To-End tests** build with the **Cypress** testing framework run before each frontend deploy by CI/CD system to achieve the best user experience.
+- Simple **End-To-End tests** build with the **Cypress** testing framework run before each frontend deploy by CI/CD system to achieve the best user experience.
 
 <br>
 
 ### Backend Specific
+
 - **Functional tests** for the API service build with **PyTest** and **Requests** modules.
 
 - Python 3 (Flask) **RESTful** API build on top of **MongoDB** for storing application state.
 
 - **Redis** based, cluster ready, **application-level rate limiting** on some of the API service endpoints.
 
- - Monitoring `/api/health` endpoint with the most valuable **performance counters** from **Redis**,
-	hooked up to my **Telegraf**, **InfluxDB** and **Grafana** metric monitoring infrastructure (*Cool graphs!* 🤓)
+- Monitoring `/api/health` endpoint with the most valuable **performance counters** from **Redis**,
+  hooked up to my **Telegraf**, **InfluxDB** and **Grafana** metric monitoring infrastructure (_Cool graphs!_ 🤓)
 
 - Fully **Dockerized** development workflow, taking advantage of **docker-compose** for developing, testing and deployments.
 
 <br>
 
 ### Frontend Specific
+
 - Beautifully designed **SPA** frontend build with **Vue.js** and **Vue-Router**.
 
 - **Valve's Fingerprint.js 2** library used for identifying users to avoid duplicated votes.
@@ -77,9 +79,11 @@ This project uses **Docker** as a development and production deployment tool, so
 <br>
 
 ### Backend
+
 > 💡 Execute every command in the `./backend` directory!
 
 **If you only want to run It**, you need to:
+
 - Spin up the whole stack as containers, simply type:
 
   ```bash
@@ -91,13 +95,14 @@ This will spin up all the necessary containers and expose Takagi service **API**
 <br>
 
 **If you want to make changes** to the **Flask** app, you need to:
+
 - Install **Python 3.8**, then projects requirements.
 
   ```bash
   pip3 install -r requirements.txt
   ```
 
-- Also, It's *optionally* development requirements.
+- Also, It's _optionally_ development requirements.
 
   ```bash
   pip3 install -r dev-requirements.txt
@@ -120,9 +125,11 @@ This will spin up all the necessary containers and expose Takagi service **API**
 <br>
 
 ### Frontend
+
 > 💡 Execute every command in the `./frontend` directory!
 
 If **you want to make changes** to the **Vue.js** app, you need to:
+
 - Install **NPM**, then projects requirements.
 
   ```bash
@@ -164,7 +171,7 @@ This project uses **PyTest**, **PyLint** and **Cypress** as a testing tools, so 
   npm run open
   ```
 
-	This will open a dashboard that will let you run all the specs.
+  This will open a dashboard that will let you run all the specs.
 
 <br>
 
@@ -178,4 +185,5 @@ It's probably a good idea to run all the tests beforehand.
 <br>
 
 ## 📃 License
+
 This project is licensed under [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/) .
