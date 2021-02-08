@@ -1,6 +1,6 @@
 <template>
   <section class="g-full-page hero-bg">
-    <NavigationBar title="Takagi" />
+    <NavigationBar title="Takagi" disabled />
 
     <div class="component-flex">
       <div>
@@ -19,7 +19,7 @@
       <div v-if="!isUserLogged">
         <p class="text-label">Or, To save your polls</p>
         <OutlineButton @clickEvent="$router.push('/register')">SIGN UP</OutlineButton>
-        <p class="text-label">Existing user? <a @click="$router.push('/login')" class="text-link g-clickable">Sign In</a></p>
+        <p class="text-label">Existing user? <a @click="$router.push('/login')" class="text-link g-clickable undeline">Sign In</a></p>
       </div>
 
       <div v-else>
@@ -98,7 +98,7 @@
     font-family: "Poppins";
     line-height: 3rem;
 
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
   }
 
   .text-link {
@@ -118,6 +118,10 @@
   .text-label {
     color: #626468;
     text-align: center;
+  }
+
+  .undeline {
+    text-decoration: underline;
   }
 
   .hero-bg {

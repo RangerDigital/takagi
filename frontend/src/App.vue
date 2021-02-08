@@ -41,16 +41,16 @@
     font-family: "Baloo Thambi 2";
 
     color: #121213;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 
   p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 500;
     font-family: "Baloo Thambi 2";
 
     color: #121213;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
 
     text-align: center;
   }
@@ -75,6 +75,15 @@
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .g-form-icon {
+    display: inline;
+
+    height: 2rem;
+    vertical-align: middle;
+
+    margin-right: 0.5rem;
   }
 
   /* View Transition Animations */
