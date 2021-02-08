@@ -1,7 +1,7 @@
 <p align="center">
   <br /><img
-    width="800"
-    src="render.png"
+    width="600"
+    src="logo.png"
     alt="Takagi - Online Polls"
   />
 </p>
@@ -22,7 +22,7 @@ design, architecture, backend, frontend, testing and a lot of DevOps-y stuff in 
 > 👑 It's alive! Check it out live at [takagi.bednarski.dev](https://takagi.bednarski.dev/)!
 
 <p align="center">
-	<img src="mockup.png" alt="Takagi - Mobile Mockup" width=800/>
+	<img src="render.png" alt="Takagi - Mobile Mockup" width=800/>
 </p>
 
 ## 🛠 Best Features
