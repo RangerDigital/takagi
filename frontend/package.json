@@ -14,7 +14,7 @@
     "@sentry/integrations": "^6.0.3",
     "axios": "^0.21.1",
     "core-js": "^3.10.0",
-    "fingerprintjs2": "^2.1.2",
+    "fingerprintjs2": "^2.1.4",
     "vee-validate": "^3.4.5",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1"
