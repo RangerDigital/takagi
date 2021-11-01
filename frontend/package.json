@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^6.0.3",
-    "@sentry/integrations": "^6.0.3",
+    "@sentry/integrations": "^6.13.3",
     "axios": "^0.21.1",
     "core-js": "^3.10.0",
     "fingerprintjs2": "^2.1.2",
